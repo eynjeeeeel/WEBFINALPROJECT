@@ -8,5 +8,8 @@ class UserController extends Controller {
     public function about(){
         $this->call->view('about');
     }
+    public function classes(){
+        $this->call->view('classes');
+    }
 }
 ?>
