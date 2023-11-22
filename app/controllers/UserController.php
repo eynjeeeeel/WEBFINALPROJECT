@@ -5,5 +5,8 @@ class UserController extends Controller {
 	public function home(){
         $this->call->view('home');
     }
+    public function about(){
+        $this->call->view('about');
+    }
 }
 ?>
