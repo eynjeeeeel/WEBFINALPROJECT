@@ -11,5 +11,6 @@ class UserController extends Controller {
     public function classes(){
         $this->call->view('classes');
     }
+   
 }
 ?>
