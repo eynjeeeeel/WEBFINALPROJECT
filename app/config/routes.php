@@ -45,7 +45,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 
 // $router->get('/', 'Welcome::index');
-$router->get('/', 'UserController::home', 'GET|POST');
-$router->get('about', 'UserController::about');
-$router->get('classes', 'UserController::classes');
+$router->get('/home', 'UserController::home', 'GET|POST');
+$router->get('/about', 'UserController::about');
+$router->get('/classes', 'UserController::classes');
 // $router->get('/', 'UserController::home');

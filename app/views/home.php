@@ -38,35 +38,8 @@
             </div>
         </div> -->
         <!-- Spinner End -->
-        <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-            <a href="index.html" class="navbar-brand">
-                <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>ACMCL</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto">
-                    <a href="home" class="nav-item nav-link active">Home</a>
-                    <a href="about" class="nav-item nav-link">About Us</a>
-                    <a href="classes" class="nav-item nav-link">Classes</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                            <a href="facility.html" class="dropdown-item">School Facilities</a>
-                            <a href="team.html" class="dropdown-item">Popular Teachers</a>
-                            <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a>
-                            <a href="appointment.html" class="dropdown-item">Make Appointment</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
-                </div>
-                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i class="fa fa-arrow-right ms-3"></i></a>
-            </div>
-        </nav>
-        <!-- Navbar End -->
+        
+        <?php include 'navbar.php';?>
 
         <!-- Facilities Start -->
         <div class="container-xxl py-5">
@@ -80,12 +53,12 @@
                         <div class="facility-item">
                             <div class="facility-icon bg-primary">
                                 <span class="bg-primary"></span>
-                                <i class="fa fa-bus-alt fa-3x text-primary"></i>
+                                <i class="fa fa-palette fa-3x text-primary"></i>
                                 <span class="bg-primary"></span>
                             </div>
                             <div class="facility-text bg-primary">
-                                <h3 class="text-primary mb-3">School Bus</h3>
-                                <p class="mb-0">We provide safe, reliable school bus transportation to and from school each day. Our friendly drivers ensure kids make it to class and home on time.</p>
+                                <h3 class="text-primary mb-3">Art and Creativity Spaces</h3>
+                                <p class="mb-0">Explore creativity at our kindergarten's Art and Creativity Spaces, where kids have fun in colorful art rooms and play areas. These special places are designed for little learners to discover and show what's in their imagination.</p>
                             </div>
                         </div>
                     </div>
@@ -119,12 +92,12 @@
                         <div class="facility-item">
                             <div class="facility-icon bg-info">
                                 <span class="bg-info"></span>
-                                <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                                <i class="fa fa-puzzle-piece fa-3x text-info"></i>
                                 <span class="bg-info"></span>
                             </div>
                             <div class="facility-text bg-info">
-                                <h3 class="text-info mb-3">Free Tutoring</h3>
-                                <p class="mb-0"> Struggling with a subject? We offer free tutoring from qualified teachers to provide additional academic help and support. Kids get the personalized attention they need to reinforce classroom lessons and advance their skills.</p>
+                                <h3 class="text-info mb-3">Learning Resources</h3>
+                                <p class="mb-0"> Discover and have fun in our kindergarten's special learning zone, filled with things perfect for your age. It's a cool place where you can learn and play with interesting stuff!</p>
                             </div>
                         </div>
                     </div>
@@ -318,10 +291,10 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="#">ACMCL Official Website</a>, All Right Reserved. 
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+							Designed By <a class="border-bottom" href="https://acmontessori@gmail.com">ACMCL College, Inc.</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">

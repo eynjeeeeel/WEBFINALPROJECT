@@ -31,16 +31,17 @@
     <link href="public/css/style.css" rel="stylesheet">
 </head>
 <body>
+<?php include 'navbar.php';?>
+
      <!-- About Start -->
      <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
-                        <p>At our kindergarten, we strive to provide a well-rounded education that nourishes children's minds, bodies, and spirits. Alongside the core academics, we integrate cultural activities into the curriculum to expose children to the arts, humanities, and self-expression. Our drama program allows children to get creative, use their imaginations, and build confidence through acting, storytelling, and performance art. Music activities like singalongs, basic instruments, and dance let kids experience different rhythms and melodies firsthand. Visual arts projects involve crafting, drawing, painting and working with varied materials to awaken creative thinking.
-                            To connect with local traditions and customs, we host special events from harvest festivals to holiday celebrations. Kids can try traditional foods, play historic games and participate in cultural experiences to help open their eyes to the diverse, vibrant heritage right in their community. At the heart of it is nurturing appreciation and respect for all people and perspectives.
-                            With a thoughtful balance of arts immersion, cultural insight and good old-fashioned playtime woven through each day, children are exposed to so much more than letters and numbers. They gain the wonders of humanity that will enrich their worldview for life.</p>
-                        <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at dolor est vero nonumy magna.</p>
+                        <p>At our kindergarten, we are dedicated to providing a holistic education that nurtures the minds, bodies, and spirits of our young learners. Our mission is to integrate cultural activities into the curriculum, fostering exposure to the arts, humanities, and self-expression. Through engaging drama programs, children unleash their creativity, imagination, and confidence through acting, storytelling, and performance art.</p>
+                        <p>Our music activities include singalongs, basic instruments, and dance, allowing kids to experience various rhythms and melodies firsthand. Visual arts projects encompass crafting, drawing, painting, and working with diverse materials to stimulate creative thinking. To connect with local traditions, we host special events, from harvest festivals to holiday celebrations, where children can try traditional foods, play historic games, and participate in cultural experiences.</p>
+                        <p>At the core of our vision is the cultivation of appreciation and respect for all people and perspectives. We believe in fostering a diverse and vibrant community, and our approach includes immersive arts experiences, cultural insights, and good old-fashioned playtime. By weaving these elements into each day, we provide children with more than just letters and numbers; they gain a profound understanding of humanity that will enrich their worldview for life.</p>
                         <div class="row g-4 align-items-center">
                             <div class="col-sm-6">
                             <div class="d-flex align-items-center">
