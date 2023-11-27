@@ -19,8 +19,7 @@
                                 <input class="mb-3" type="text" name="firstname" placeholder="Firstname" id="firstname">
                                 <input class="mb-3" type="text" name="lastname" placeholder="Lastname" id="lastname">
                                 <input class="mb-3" type="text" name="email" placeholder="Email" id="email">
-                                <input class="mb-3" type="password" name="password" placeholder="Password"
-                                    id="password">
+                                <input class="mb-3" type="password" name="password" placeholder="Password" id="password">
                                 <button type="submit" class="btn btn-primary px-4 py-2 rounded-pill">Register</button>
                             </form>
 
