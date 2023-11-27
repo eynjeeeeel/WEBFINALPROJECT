@@ -14,7 +14,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                            <a href="facility.html" class="dropdown-item">School Facilities</a>
+                            <a href="facilities" class="dropdown-item">School Facilities</a>
                             <a href="team.html" class="dropdown-item">Popular Teachers</a>
                             <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a>
                             <a href="appointment.html" class="dropdown-item">Make Appointment</a>

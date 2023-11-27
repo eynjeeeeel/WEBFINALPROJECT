@@ -11,6 +11,8 @@ class UserController extends Controller {
     public function classes(){
         $this->call->view('classes');
     }
-   
+    public function facilities(){
+        $this->call->view('../views/homepage/facilitiesHP.php');
+    }
 }
 ?>
