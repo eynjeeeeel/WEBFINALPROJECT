@@ -24,7 +24,7 @@
                             <div class="service-content d-flex align-items-center justify-content-center">
                                 <div class="service-content-icon text-center">
                                     <h4 class="mb-3">Create an account</h4>
-                                    <!-- PHP validation -->
+                                    <!-- PHP validation and registration -->
                                     <?php
                                     $firstname = $lastname = $email = $password = "";
 
@@ -35,13 +35,39 @@
                                         $password = test_input($_POST["password"]);
 
                                         // Add your validation logic here
-                                        // For example, check if fields are not empty
                                         if (empty($firstname) || empty($lastname) || empty($email) || empty($password)) {
                                             echo "<p class='text-danger'>All fields are required.</p>";
                                         } else {
-                                            // Your registration logic goes here
-                                            // Redirect or display success message
-                                            echo "<p class='text-success'>Registration successful!</p>";
+                                            // Your database connection details
+                                            $servername = "your_server_name";
+                                            $username = "your_username";
+                                            $password = "your_password";
+                                            $dbname = "your_database_name";
+
+                                            // Create connection
+                                            $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                            // Check connection
+                                            if ($conn->connect_error) {
+                                                die("Connection failed: " . $conn->connect_error);
+                                            }
+
+                                            // Insert user information into the database
+                                            $sql = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')";
+
+                                            if ($conn->query($sql) === TRUE) {
+                                                echo "<p class='text-success'>Registration successful! Redirecting to login page...</p>";
+                                                // Redirect to login page after a delay
+                                                echo "<script>
+                                                        setTimeout(function(){
+                                                            window.location.href = '" . base_url() . "/login';
+                                                        }, 3000);
+                                                    </script>";
+                                            } else {
+                                                echo "<p class='text-danger'>Error: " . $sql . "<br>" . $conn->error . "</p>";
+                                            }
+
+                                            $conn->close();
                                         }
                                     }
 
@@ -53,7 +79,7 @@
                                         return $data;
                                     }
                                     ?>
-                                    <!-- End of PHP validation -->
+                                    <!-- End of PHP validation and registration -->
 
                                     <!-- Registration form -->
                                     <form action="<?= site_url('/register') ?>" method="post" class="row g-2">

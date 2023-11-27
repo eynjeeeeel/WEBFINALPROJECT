@@ -17,7 +17,7 @@ class UserController extends Controller {
 
     public function login(){
         $this->call->view('login');
-    }
+    }   
     public function register(){
         $this->call->view('register');
     }
