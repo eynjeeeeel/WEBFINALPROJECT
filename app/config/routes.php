@@ -49,7 +49,10 @@ $router->get('/home', 'UserController::home', 'GET|POST');
 $router->get('/about', 'UserController::about');
 $router->get('/classes', 'UserController::classes');
 $router->get('/facilities', 'UserController::facilities');
-$router->get('/login', 'UserController::login');
 $router->get('/register', 'UserController::register');
+$router->match('/registerAuth', 'UserController::registerAuth', 'GET|POST');
+$router->get('login', 'UserController::login');
+$router->match('loginAuth', 'UserController::loginAuth', 'GET|POST');
+$router->get('logout', 'UserController::logout');
 
 // $router->get('/', 'UserController::home');

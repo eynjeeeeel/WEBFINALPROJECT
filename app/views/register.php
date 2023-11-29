@@ -22,87 +22,48 @@
                     <div class="card bg-success text-white">
                         <div class="card-body p-4">
                             <div class="service-content d-flex align-items-center justify-content-center">
-                                <div class="service-content-icon text-center">
-                                    <h4 class="mb-3">Create an account</h4>
-                                    <!-- PHP validation and registration -->
-                                    <?php
-                                    $firstname = $lastname = $email = $password = "";
-
-                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                        $firstname = test_input($_POST["firstname"]);
-                                        $lastname = test_input($_POST["lastname"]);
-                                        $email = test_input($_POST["email"]);
-                                        $password = test_input($_POST["password"]);
-
-                                        // Add your validation logic here
-                                        if (empty($firstname) || empty($lastname) || empty($email) || empty($password)) {
-                                            echo "<p class='text-danger'>All fields are required.</p>";
-                                        } else {
-                                            // Your database connection details
-                                            $servername = "your_server_name";
-                                            $username = "your_username";
-                                            $password = "your_password";
-                                            $dbname = "your_database_name";
-
-                                            // Create connection
-                                            $conn = new mysqli($servername, $username, $password, $dbname);
-
-                                            // Check connection
-                                            if ($conn->connect_error) {
-                                                die("Connection failed: " . $conn->connect_error);
-                                            }
-
-                                            // Insert user information into the database
-                                            $sql = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')";
-
-                                            if ($conn->query($sql) === TRUE) {
-                                                echo "<p class='text-success'>Registration successful! Redirecting to login page...</p>";
-                                                // Redirect to login page after a delay
-                                                echo "<script>
-                                                        setTimeout(function(){
-                                                            window.location.href = '" . base_url() . "/login';
-                                                        }, 3000);
-                                                    </script>";
-                                            } else {
-                                                echo "<p class='text-danger'>Error: " . $sql . "<br>" . $conn->error . "</p>";
-                                            }
-
-                                            $conn->close();
-                                        }
-                                    }
-
-                                    function test_input($data)
-                                    {
-                                        $data = trim($data);
-                                        $data = stripslashes($data);
-                                        $data = htmlspecialchars($data);
-                                        return $data;
-                                    }
-                                    ?>
-                                    <!-- End of PHP validation and registration -->
-
-                                    <!-- Registration form -->
-                                    <form action="<?= site_url('/register') ?>" method="post" class="row g-2">
-                                        <div class="col-12">
-                                            <input class="mb-3 form-control" type="text" name="firstname" placeholder="Firstname" id="firstname" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <input class="mb-3 form-control" type="text" name="lastname" placeholder="Lastname" id="lastname" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <input class="mb-3 form-control" type="email" name="email" placeholder="Email" id="email" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <input class="mb-3 form-control" type="password" name="password" placeholder="Password" id="password" required>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-light px-4 py-2 rounded-pill">Register</button>
-                                        </div>
-                                    </form>
-                                    <!-- End of registration form -->
-
-                                    <a href="<?= base_url() ?>login" class="text-white mt-3 d-block">Already have an account? Login here.</a>
-                                </div>
+                            <div class="container">
+                                <h2 class="text-emerald-600">Gamer Registration</h2>
+                                <form action="<?= site_url('registerAuth') ?>" method="POST">
+                                    <div class="mb-3">
+                                        <label for="inputFirstname" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="inputFirstname" placeholder="Choose a firstname" required
+                                            name="firstname">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputLastname" class="form-label">lastname</label>
+                                        <input type="text" class="form-control" id="inputLastname" placeholder="Choose a lastname" required
+                                            name="lastname">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputEmail" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required
+                                            name="email">
+                                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputPassword" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelpInline"
+                                            required name="password">
+                                        <!-- <div id="passwordHelpInline" class="form-text">
+                                            Must be 8-20 characters long. 1 uppercase, 1 lowercase, and add special characters.
+                                        </div> -->
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputPassword" class="form-label">Confirm Password</label>
+                                        <input type="password" class="form-control" id="inputConfirmPassword"
+                                            aria-describedby="passwordHelpInline" required name="confirm-password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Register</button>
+                                </form>
+                                <p class="mt-4 text-center text-lg text-gray-700" style="color: #00ab9e; font-size: 17px">
+                                    Already have an account? <a href="<?= site_url('login') ?>"
+                                    style="color: #00ab9e">Login</a>
+                                </p>
+                            </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
                             </div>
                         </div>
                     </div>
