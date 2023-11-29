@@ -39,7 +39,7 @@
                                     </form>
 
                                     <a href="<?= base_url() ?>/register" class="text-white mt-3 d-block">Don't have an
-                                        account? Register here.</a>
+                                        account? Register</a>
                                 </div>
                             </div>
                         </div>

@@ -101,7 +101,7 @@
                                     </form>
                                     <!-- End of registration form -->
 
-                                    <a href="<?= base_url() ?>login" class="text-white mt-3 d-block">Already have an account? Login here.</a>
+                                    <a href="<?= base_url() ?>login" class="text-white mt-3 d-block">Already have an account? Login</a>
                                 </div>
                             </div>
                         </div>
