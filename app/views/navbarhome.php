@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto">
-            <a href="homemain" class="nav-item nav-link text-green">Home</a>
+            <a href="home" class="nav-item nav-link text-green">Home</a>
             <a href="about" class="nav-item nav-link text-green">About Us</a>
             <a href="classes" class="nav-item nav-link text-green">Classes</a>
             <div class="nav-item dropdown">
@@ -23,7 +23,7 @@
             </div>
             <a href="" class="nav-item nav-link text-green">Contact Us</a>
         </div>
-        <a href="login" class="btn btn-primary rounded-pill px-3 d-none d-lg-block" style="background-color: green; border-color: green;">Join Us<i class="fa fa-arrow-right ms-3"></i></a>
+        <a href="login" class="btn btn-primary rounded-pill px-3 d-none d-lg-block" style="background-color: green; border-color: green;">Logout<i class="fa fa-arrow-right ms-3"></i></a>
     </div>
 </nav>
 <!-- Navbar End -->

@@ -3,6 +3,22 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class UserController extends Controller {
 
+    public function home(){
+        $this->call->view('home');
+    }
+    public function homemain(){
+        $this->call->view('homemain');
+    }
+
+    public function about(){
+        $this->call->view('about');
+    }
+    public function classes(){
+        $this->call->view('classes');
+    }
+    public function facilities(){
+        $this->call->view('../views/homepage/facilitiesHP.php');
+    }
     public function __construct()
     {
         parent::__construct();
@@ -16,23 +32,14 @@ class UserController extends Controller {
     }
     public function loginAuth()
     {
-        $firstname = $this->io->post('firstname');
-        $lastname = $this->io->post('lastname');
         $email = $this->io->post('email');
         $password = $this->io->post('password');
     
-        // Check if the key exists in the post data
-        if (!isset($firstname)) {
-            $this->session->set_flashdata('errors', ['Invalid input data']);
-            redirect('login');
-            return;
-        }
-    
-        $user = $this->User_model->authenticateUser($firstname, $lastname, $email, $password);
+        $user = $this->User_model->authenticateUser($email, $password);
     
         if ($user) {
             $this->acmcl->set_logged_in($user['id']);
-            redirect('home');
+            redirect('/homemain');
         } else {
             $this->session->set_flashdata('errors', ['Invalid email or password']);
             redirect('login');
