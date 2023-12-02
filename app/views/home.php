@@ -11,7 +11,7 @@
         <?php include 'navbarhome.php' ?>
 
 
-        <?php include 'homepage/teachersHP.php' ?>
+        <?php include 'homepage/campustour.php' ?>
 
         <?php include 'footer.php' ?>
 

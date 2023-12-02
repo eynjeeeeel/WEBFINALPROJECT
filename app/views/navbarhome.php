@@ -11,19 +11,28 @@
             <a href="home" class="nav-item nav-link text-green">Home</a>
             <a href="about" class="nav-item nav-link text-green">About Us</a>
             <a href="classes" class="nav-item nav-link text-green">Classes</a>
+            <a href="<?= site_url('facilities') ?>" class="nav-item nav-link text-green">School Facilities</a>
+            <a href="studprof" class="nav-item nav-link text-green">My Child's Profile</a>
+        </div>
+
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <div class="navbar-nav mx-auto">
+
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle text-green" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                    <a href="<?= site_url('facilities') ?>" class="dropdown-item text-green">School Facilities</a>
-                    <a href="team.html" class="dropdown-item text-green">Popular Teachers</a>
-                    <a href="call-to-action.html" class="dropdown-item text-green">Become A Teacher</a>
-                    <a href="appointment.html" class="dropdown-item text-green">Make Appointment</a>
-                    <a href="404.html" class="dropdown-item text-green">404 Error</a>
+                <a href="#" class="nav-link dropdown-toggle text-green" id="profileDropdown" data-bs-toggle="dropdown">Profile</a>
+                <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0" aria-labelledby="profileDropdown">
+                    <!-- Add other profile-related menu items here -->
+                    <a href="#" class="dropdown-item text-green">My Profile</a>
+                    <a href="#" class="dropdown-item text-green">Child</a>
+                    <a href="#" class="dropdown-item text-green">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="sitevisit" class="dropdown-item text-green">Logout</a>
                 </div>
             </div>
-            <a href="" class="nav-item nav-link text-green">Contact Us</a>
         </div>
-        <a href="sitevisit" class="btn btn-primary rounded-pill px-3 d-none d-lg-block" style="background-color: green; border-color: green;">Logout<i class="fa fa-arrow-right ms-3"></i></a>
     </div>
 </nav>
 <!-- Navbar End -->

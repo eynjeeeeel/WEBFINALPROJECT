@@ -10,6 +10,11 @@ class UserController extends Controller {
     public function sitevisit(){
         $this->call->view('sitevisit');
     }
+
+    public function studprof(){
+        $this->call->view('studprof');
+    }
+
     public function home(){
         $this->call->view('home');
     }
