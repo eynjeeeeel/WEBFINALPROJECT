@@ -44,12 +44,14 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 
-// $router->get('/', 'Welcome::index');
-$router->get('/home', 'UserController::home', 'GET|POST');
-$router->get('/about', 'UserController::about');
-$router->get('/classes', 'UserController::classes');
-$router->get('/facilities', 'UserController::facilities');
-$router->get('/login', 'UserController::login');
-$router->get('/register', 'UserController::register');
+$router->get('sitevisit', 'UserController::sitevisit', 'GET|POST');
+$router->get('home', 'UserController::home', 'GET|POST');
+$router->get('about', 'UserController::about');
+$router->get('classes', 'UserController::classes');
+$router->get('facilities', 'UserController::facilities');
+$router->get('register', 'UserController::register');
+$router->match('registerAuth', 'UserController::registerAuth', 'GET|POST');
+$router->get('login', 'UserController::login');
+$router->match('loginAuth', 'UserController::loginAuth', 'GET|POST');
+$router->get('logout', 'UserController::logout');
 
-// $router->get('/', 'UserController::home');

@@ -8,13 +8,8 @@
 <body>
     <div class="container-xxl bg-white p-0">
         
-        <?php include 'navbar.php' ?>
+        <?php include 'navbarhome.php' ?>
 
-        <?php include 'homepage/facilitiesHP.php' ?>
-
-        <?php include 'homepage/bememberHP.php' ?>
-
-        <?php include 'homepage/appointmentHP.php' ?>
 
         <?php include 'homepage/teachersHP.php' ?>
 

@@ -6,6 +6,8 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <title>ACMCL KINDERGARTEN</title>
+
     <!-- Favicon -->
     <link href="public/img/favicon.ico" rel="icon">
 
