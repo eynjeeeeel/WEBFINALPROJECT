@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+<div class="container-xxl bg-white p-0">
         <div class="container-fluid service py-6">
             <div class="container">
                 <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
@@ -37,7 +37,7 @@
                                             </div>
                                         </form>
 
-                                    <a href="<?= base_url() ?>/register" class="text-white mt-3 d-block">Don't have an
+                                    <a href="<?= base_url() ?>register" class="text-white mt-3 d-block">Don't have an
                                         account? Register</a>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <?php
     include 'scriptLT.php';
 

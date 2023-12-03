@@ -79,6 +79,7 @@
 </head>
 
 <body>
+<div class="container-xxl bg-white p-0">
     <?php include 'navbarhome.php';?>
 
     <!-- Classes Start -->
@@ -213,7 +214,7 @@
         </div>
     </div>
     <!-- Classes End -->
-
+    </div>
 </body>
 
 </html>

@@ -1,6 +1,11 @@
 /********** Template CSS **********/
 
 
+.navbar {
+    background-color: green;
+    color: #fff;
+}
+
 /* styles.css */
 
 #carouselExampleAutoplaying {

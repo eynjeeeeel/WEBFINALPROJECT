@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -38,7 +39,7 @@
         }
 
         .about-heading {
-            color: #007bff; /* Primary color for heading */
+            color: green; /* Primary color for heading */
             font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 30px;
@@ -50,7 +51,7 @@
         }
 
         .director-info {
-            background-color: #007bff; /* Primary color for director info */
+            background-color: green; /* Primary color for director info */
             color: #fff; /* Text color for director info */
             padding: 15px;
             border-radius: 10px;
@@ -72,40 +73,71 @@
             margin-bottom: 15px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
+
+        /* Adjusted dropdown styling */
+        .contact-dropdown {
+            background-color: white;
+            color: #fff;
+            border-radius: 10px;
+            padding: 1px;
+            margin-left: 100px;
+        }
+
+        .contact-dropdown ul {
+            list-style-type: none;
+            padding: 25px;
+            margin: 5px;
+        }
+
+        .contact-dropdown li {
+            margin-bottom: 10px;
+            color: black;
+        }
     </style>
 </head>
 
 <body>
-    <?php include 'navbarhome.php';?>
+    <div class="container-xxl bg-white p-0">
+        <?php include 'navbarhome.php';?>
 
-    <!-- Redesigned About Section -->
-    <div class="about-section">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="about-heading mb-4">Discover Our Enriching Cultural Programs</h1>
-                    <p class="about-content">At our kindergarten, we go beyond traditional education. We immerse children in a world of cultural activities designed to stimulate their minds and foster creativity. Through engaging drama programs, music activities, and visual arts projects, we aim to ignite the spark of imagination and build confidence in every child.</p>
-                    <p class="about-content">Our unique approach includes hosting special events that connect children with local traditions, from harvest festivals to holiday celebrations. These events allow kids to try traditional foods, play historic games, and participate in cultural experiences, creating lasting memories and a sense of community.</p>
-                    <p class="about-content">We believe in the power of diversity and inclusion. Our dedicated team, led by Mr. & Mrs. Dolor, Directors of our kindergarten, is committed to providing an enriching environment that goes beyond letters and numbers. Join us on this exciting journey of learning and cultural exploration!</p>
-                    <div class="director-info">
-                        <div class="d-flex align-items-center">
-                            <img class="director-image" src="public/img/user.jpg" alt="Director Image">
-                            <div class="ms-3">
-                                <h6 class="mb-1">Mr. & Mrs. Dolor</h6>
-                                <small>Directors of the Kindergarten</small>
+        <!-- Redesigned About Section -->
+        <div class="about-section">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="about-heading mb-4">Discover Our Enriching Cultural Programs</h1>
+                        <p class="about-content">At our kindergarten, we go beyond traditional education. We immerse children in a world of cultural activities designed to stimulate their minds and foster creativity. Through engaging drama programs, music activities, and visual arts projects, we aim to ignite the spark of imagination and build confidence in every child.</p>
+                        <p class="about-content">Our unique approach includes hosting special events that connect children with local traditions, from harvest festivals to holiday celebrations. These events allow kids to try traditional foods, play historic games, and participate in cultural experiences, creating lasting memories and a sense of community.</p>
+                        <p class="about-content">We believe in the power of diversity and inclusion. Our dedicated team, led by Mr. & Mrs. Dolor, Directors of our kindergarten, is committed to providing an enriching environment that goes beyond letters and numbers. Join us on this exciting journey of learning and cultural exploration!</p>
+                        <div class="director-info">
+                            <div class="d-flex align-items-center">
+                                <img class="director-image" src="public/img/user.jpg" alt="Director Image">
+                                <div class="ms-3">
+                                    <h6 class="mb-1">Mr. & Mrs. Dolor</h6>
+                                    <small>Directors of the Kindergarten</small>
+                                </div>
+                                <div class="contact-dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Contact Us
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><p class="mb-2"> <i class="fa fa-map-marker-alt me-5">Poblacion I, Victoria, Oriental Mindoro</i></p></li>
+                                        <li><p class="mb-2"> <i class="fa fa-phone-alt me-5">09662057494</i></p></li>
+                                        <li><p class="mb-2"> <i class="fa fa-envelope me-5">acmontessori@gmail.com</i></p></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 about-images wow fadeInUp" data-wow-delay="0.5s">
-                    
-                    <div class="row">
-                       
-                        <div class="col-6"> <img class="img-fluid" src="public/img/about-1.jpg" alt="About Image 1">
-                            <img class="img-fluid" src="public/img/about-2.jpg" alt="About Image 2">
-                        </div>
-                        <div class="col-6">
-                            <img class="img-fluid" src="public/img/about-3.jpg" alt="About Image 3">
+                    <div class="col-lg-6 about-images wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row">
+                            <div class="col-6">
+                                <img class="img-fluid" src="public/img/about-1.jpg" alt="About Image 1">
+                                <img class="img-fluid" src="public/img/about-2.jpg" alt="About Image 2">
+                            </div>
+                            <div class="col-6">
+                                <img class="img-fluid" src="public/img/about-3.jpg" alt="About Image 3">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,4 +145,6 @@
         </div>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>

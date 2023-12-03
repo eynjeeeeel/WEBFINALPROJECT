@@ -35,14 +35,12 @@
         body {
             font-family: 'Heebo', sans-serif;
             background-color: #f8f9fa; /* Light background color */
-            margin: 0;
+            margin: auto;
             padding: 0;
+            
         }
 
-        .navbar {
-            background-color: #17a2b8;
-            color: #fff;
-        }
+
 
         .student-profile-container {
             margin: 50px 0;
@@ -72,6 +70,7 @@
 </head>
 
 <body>
+<div class="container-xxl bg-white p-0">
     <!-- Navbar Start -->
 <?php include 'navbarhome.php' ?>
 
@@ -150,6 +149,7 @@
     <footer class="bg-green text-center py-3">
         <p class="m-0 text-white">&copy; 2023 ACMCL. All rights reserved.</p>
     </footer>
+    </div>
     <!-- Footer End -->
 
     <!-- Bootstrap Scripts -->
