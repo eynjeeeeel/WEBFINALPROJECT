@@ -130,16 +130,21 @@
                         </div>
                     </div>
                     <div class="col-lg-6 about-images wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="row">
-                            <div class="col-6">
-                                <img class="img-fluid" src="public/img/about-1.jpg" alt="About Image 1">
-                                <img class="img-fluid" src="public/img/about-2.jpg" alt="About Image 2">
-                            </div>
-                            <div class="col-6">
-                                <img class="img-fluid" src="public/img/about-3.jpg" alt="About Image 3">
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col-6">
+                        <!-- Using Lorem Picsum placeholder images for professors -->
+                        <img class="img-fluid" src="https://remini.me/site/wp-content/uploads/2019/11/kindergarten-teacher.jpg" alt="Professor Image 1">
+                        <img class="img-fluid" src="https://baodanang.vn/dataimages/201702/original/images1338222_pjSJ6kIb.jpg" alt="Professor Image 2">
+                        <img class="img-fluid" src="https://soeonline.american.edu/wp-content/uploads/sites/2/2022/08/blog-satisfied-teacher-960x640-1-e1662142635515.jpg" alt="Professor Image 3">
                     </div>
+                    <div class="col-6">
+                        <!-- Using another Lorem Picsum placeholder image for professor -->
+                        <img class="img-fluid" src="https://news.virginia.edu/sites/default/files/article_image/daphna_bassok_da_header.jpg" alt="Professor Image 3">
+                        <img class="img-fluid" src="https://etfovoice.ca/sites/default/files/styles/feature/public/2023-03/iStock-1092432244.jpg?itok=Xq4SRXnj" alt="Professor Image 3">
+                        <img class="img-fluid" src="https://uploads-ssl.webflow.com/640a757e1a4e9cc4b094fe00/640a757f1a4e9cbd0e94feb3_portrait-gorgeous-hispanic-preschool-teacher-teaching-her-students-classroom%20(1).webp" alt="Professor Image 3">
+                    </div>
+                </div>
+            </div>
                 </div>
             </div>
         </div>
