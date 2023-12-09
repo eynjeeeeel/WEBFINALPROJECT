@@ -24,9 +24,21 @@ class UserController extends Controller {
     public function classes(){
         $this->call->view('classes');
     }
+
+    public function StudentFormReg(){
+        $this->call->view('StudentFormReg');
+    }
+
     public function facilities(){
         $this->call->view('facilitiesPG');
     }
+
+    public function navbarhome(){
+        $data['activePage'] = 'home, about, classes, facilities, studprof';
+        $this->call->view('navbarhome', $data);
+        
+    }
+
     public function login()
     {
         $this->call->view('login');

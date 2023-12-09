@@ -83,7 +83,7 @@
         <!-- About the Company -->
         <div class="container about-section">
             <div class="row">
-                <div class="col-sm-9 mb-3 mb-sm-0">
+                <div class="col-sm-8 mb-3 mb-sm-0">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Welcome to ACMCL Kindergarten!</h5>
@@ -96,7 +96,7 @@
                 </div>
 
 
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Contact Us!</h5>

@@ -60,5 +60,39 @@ class User_model extends Model {
         return $this->db->table('account')->where('id', $userId)->get();
 
     }
+    public function registerWithImage($data)
+    {
+        $upload_config = array(
+            'upload_path'   => './public/img/',
+            'allowed_types' => 'jpg|jpeg|png',
+            'max_size'      => 2048, // 2MB
+            'encrypt_name'  => TRUE
+        );
+
+        $this->load->library('upload', $upload_config);
+
+        if ($this->upload->do_upload()) {
+            $file_data = $this->upload->data();
+
+            $user_data = array(
+                'idnumber' => $data['idnumber'],
+                'fullname' => $data['fullname'],
+                'age'      => $data['age'],
+                'birthday' => $data['birthday'],
+                'gender'   => $data['gender'],
+                'address'  => $data['address'],
+                'section'  => $data['section'],
+                'picture'  => 'public/img/' . $file_data['file_name']
+            );
+
+            // Add session data
+            $this->session->set_userdata('user_data', $user_data);
+
+            $this->db->insert('students', $user_data);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>

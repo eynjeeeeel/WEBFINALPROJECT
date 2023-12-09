@@ -37,8 +37,11 @@
                                             </div>
                                         </form>
 
-                                    <a href="<?= base_url() ?>register" class="text-white mt-3 d-block">Don't have an
-                                        account? Register</a>
+                                        <p class="mt-4 text-center text-lg text-gray-700" style="color: white; font-size: 17px">Don't have an
+                                        account?
+                                        <a href="<?= site_url('login') ?>"
+                                    style="color: aqua; text-decoration: underline">Login</a>
+                                        </p>
                                 </div>
                             </div>
                         </div>
