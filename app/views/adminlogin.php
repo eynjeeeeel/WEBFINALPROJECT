@@ -22,8 +22,8 @@
                             <div class="card-body p-4">
                                 <div class="service-content d-flex align-items-center justify-content-center">
                                     <div class="service-content-icon text-center">
-                                        <h5 class="mb-3">ACMCL Login</h5>
-                                        <form action="<?= site_url('loginAuth') ?>" method="post" class="row g-3">
+                                        <h5 class="mb-3">ACMCL Admin Login</h5>
+                                        <form action="<?= site_url('adminloginAuth') ?>" method="post" class="row g-3">
                                             <div class="col-12">
                                                 <input type="email" name="email" placeholder="Email" id="email"
                                                     class="form-control" required>
@@ -39,8 +39,8 @@
 
                                         <p class="mt-4 text-center text-lg text-gray-700" style="color: white; font-size: 17px">Don't have an
                                         account?
-                                        <a href="<?= site_url('register') ?>"
-                                    style="color: aqua; text-decoration: underline">Sign Up</a>
+                                        <a href="<?= site_url('adminregister') ?>"
+                                    style="color: aqua; text-decoration: underline">Sign up</a>
                                         </p>
                                 </div>
                             </div>

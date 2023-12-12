@@ -25,12 +25,12 @@
                 <a href="#" class="nav-link dropdown-toggle text-white" id="profileDropdown" data-bs-toggle="dropdown">Profile</a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <!-- Add other profile-related menu items here -->
-                    <a href="#" class="dropdown-item text-green">My Profile</a>
-                    <a href="<?= site_url('StudentFormReg') ?>" class="dropdown-item text-green">Child</a>
-                    <a href="#" class="dropdown-item text-green">Settings</a>
+                    <a href="#" class="dropdown-item text-green">View My Profile</a>
+                    <a href="<?= site_url('StudentFormReg') ?>" class="dropdown-item text-green">Register Your Child</a>
+                    <a href="adminlogin" class="dropdown-item text-green">Settings (For Admin only)</a>
 
                     <div class="dropdown-divider"></div>
-                    <a href="sitevisit" class="dropdown-item text-green">Logout</a>
+                    <a href="adminlogin" class="dropdown-item text-green">Logout</a>
                 </div>
             </div>
         </div>

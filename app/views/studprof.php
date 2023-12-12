@@ -73,7 +73,8 @@
         }
 
         .dashboard-item table {
-            width: 100px;
+            width: 500px;
+            height: 275px;
             font-size: 0.8rem;
         }
 
@@ -111,132 +112,295 @@
 <div class="container-xxl bg-white p-0">
         <!-- Navbar Start -->
         <?php include 'navbarhome.php' ?>
+        <?php include 'StudInfo.php' ?>
 
         <div class="container-xxl py-3 student-profile-container">
             <div class="container">
+                
                 <!-- Dashboard Section -->
                 <div class="dashboard-section">
                     <div class="row">
                         <!-- Academic Progress Section -->
                         <div class="dashboard-item col-md-6">
-                        <h3>Academic Progress</h3>
-                        <p>Your academic progress will be displayed here.</p>
-                        <!-- Example: Bar Chart with adjusted height -->
-                        <canvas id="academicProgressChart" style="max-height: 200px;"></canvas>
-                    </div>
+                            <h3>Academic Progress</h3>
+                            <p>Track your academic progress throughout the quarters.</p>
+                            
+                            <!-- Example: Line Chart for Academic Progress -->
+                            <canvas id="academicProgressChart" style="max-height: 300px; max-width:500px"></canvas>
+                        </div>
+
 
                         <!-- Grades Section -->
                         <div class="dashboard-item col-md-6">
                             <h3>Grades</h3>
-                            <p>Your grades will be displayed here.</p>
-                            <!-- Example: Data Table -->
+                            <!-- teacher's comment -->
+                            <p>Your child's grades are not final, due to the extra points.</p>
+                            
                             <table id="gradesTable" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Subject</th>
-                                        <th>Grade</th>
+                                        <th>First Quarter</th>
+                                        <th>Second Quarter</th>
+                                        <th>Third Quarter</th>
+                                        <th>Fourth Quarter</th>
+                                        <th>GWA</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <!-- Mathematics -->
                                     <tr>
                                         <td>Mathematics</td>
                                         <td>90</td>
+                                        <td>89</td>
+                                        <td>86</td>
+                                        <td>93</td>
+                                        <td>89.50</td>
                                     </tr>
+                                    <!-- Science -->
                                     <tr>
                                         <td>Science</td>
                                         <td>85</td>
+                                        <td>88</td>
+                                        <td>82</td>
+                                        <td>90</td>
+                                        <td>86.25</td>
                                     </tr>
-                                    <!-- Add more rows as needed -->
+                                    <!-- Language -->
+                                    <tr>
+                                        <td>Language</td>
+                                        <td>88</td>
+                                        <td>85</td>
+                                        <td>90</td>
+                                        <td>87</td>
+                                        <td>87.50</td>
+                                    </tr>
+                                    <!-- Art -->
+                                    <tr>
+                                        <td>Art</td>
+                                        <td>82</td>
+                                        <td>78</td>
+                                        <td>85</td>
+                                        <td>80</td>
+                                        <td>81.25</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
 
                         <!-- Schedules Section -->
                         <div class="dashboard-item col-md-6">
-                            <h3>Schedules</h3>
-                            <p>Your schedules will be displayed here.</p>
-                            <!-- Example: Calendar or Timetable -->
-                            <div id="scheduleCalendar"></div>
+                            <h3>Kindergarten Class Schedule</h3>
+                            <p>Here is your child's class schedule, every morning, weekly.</p>
+
+                            <table class="table table-bordered">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th>
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>8:00 AM - 9:00 AM</td>
+                                        <td>Math</td>
+                                        <td>Science</td>
+                                        <td>Language</td>
+                                        <td>Art</td>
+                                        <td>Free Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9:00 AM - 10:00 AM</td>
+                                        <td>Art</td>
+                                        <td>Language</td>
+                                        <td>Math</td>
+                                        <td>Science</td>
+                                        <td>Outdoor Activities</td>
+                                    </tr>
+                                    <!-- Add more rows for different time slots -->
+                                </tbody>
+                            </table>
                         </div>
 
-                        <!-- Alerts Section -->
+
+                        <!-- Announcements and Events Section -->
                         <div class="dashboard-item col-md-6">
-                            <h3>Alerts</h3>
-                            <p>Any alerts or notifications will be displayed here.</p>
-                            <!-- Example: Notification List -->
+                            <h3>Kindergarten Class Bulletin Board</h3>
+                            <p>Check out the latest announcements and upcoming events for the kindergarten class!</p>
+
+                            <!-- Example: Bulletin Board -->
+                            <div class="bulletin-board">
+                                <!-- Announcements -->
+                                <div class="announcement-section">
+                                    <h4>Announcements</h4>
+                                    <ul>
+                                        <li>New Classroom Rules Implemented</li>
+                                        <li>Parent-Teacher Meeting Next Week</li>
+                                        <li>Healthy Snack Day Every Friday</li>
+                                        <!-- Add more announcements as needed -->
+                                    </ul>
+                                </div>
+
+                                <!-- Events -->
+                                <div class="event-section">
+                                    <h4>Upcoming Events</h4>
+                                    <ul>
+                                        <li>Field Trip to the Zoo - Date: January 15, 2024</li>
+                                        <li>Science Fair - Date: February 10, 2024</li>
+                                        <li>Art and Craft Day - Date: March 5, 2024</li>
+                                        <!-- Add more events as needed -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                <!-- Child's Financial Reports Section -->
+                <div class="profile-section">
+                    <h2 class="mb-3 class-title">Child's Financial Reports</h2>
+                    <p>Review your child's tuition fees, payments, and other bills in this section.</p>
+
+                    <!-- Example: Bulletin Board Style Financial Overview -->
+                    <div class="financial-reports">
+                        <!-- Tuition Fees -->
+                        <div class="tuition-fees-section">
+                            <h4>Tuition Fees</h4>
                             <ul>
-                                <li>New Assignment Posted</li>
-                                <li>Upcoming Exam Reminder</li>
-                                <!-- Add more alerts as needed -->
+                                <li>January 2024: $300</li>
+                                <li>February 2024: $300</li>
+                                <li>March 2024: $300</li>
+                                <!-- Add more tuition fee entries as needed -->
+                            </ul>
+                        </div>
+
+                        <!-- Payments -->
+                        <div class="payments-section">
+                            <h4>Payments</h4>
+                            <ul>
+                                <li>Payment Received on January 5, 2024: $150</li>
+                                <li>Payment Received on February 3, 2024: $150</li>
+                                <!-- Add more payment entries as needed -->
+                            </ul>
+                        </div>
+
+                        <!-- Other Bills -->
+                        <div class="other-bills-section">
+                            <h4>Other Bills</h4>
+                            <ul>
+                                <li>Field Trip Fee: $20 (Due by February 10, 2024)</li>
+                                <li>Art Supplies: $10 (Due by March 1, 2024)</li>
+                                <!-- Add more bill entries as needed -->
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Financials Section -->
-                <div class="profile-section">
-                    <h2 class="mb-3 class-title">Financials</h2>
-                    <p>Review tuition fees, payments, and manage finances will be available in this section.</p>
-                    <!-- Example: Financial Overview -->
-                    <canvas id="financialOverviewChart" style="height: 150px;"></canvas>
-                </div>
 
-                <!-- Campus Involvement Section -->
-                <div class="profile-section">
-                    <h2 class="mb-3 class-title">Campus Involvement</h2>
-                    <p>Browse student clubs/orgs/groups and RSVP for events will be accessible in this section.</p>
-                    <!-- Example: Club Membership Table -->
-                    <table id="clubMembershipTable" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Club Name</th>
-                                <th>Membership Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Programming Club</td>
-                                <td>Active Member</td>
-                            </tr>
-                            <tr>
-                                <td>Art Society</td>
-                                <td>Interested</td>
-                            </tr>
-                            <!-- Add more rows as needed -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                <!-- Child's Class and Campus Involvement Section -->
+<div class="profile-section">
+    <h2 class="mb-3 class-title">Child's Class and Campus Involvement</h2>
+    <p>Explore your child's participation in clubs, organizations, and other subject-related activities in this section.</p>
+
+    <!-- Example: Club and Organization Membership Table -->
+    <table id="childInvolvementTable" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Activity Name</th>
+                <th>Activity Type</th>
+                <th>Membership Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Math Club</td>
+                <td>Club</td>
+                <td>Active Member</td>
+            </tr>
+            <tr>
+                <td>Science Fair</td>
+                <td>Event</td>
+                <td>Participating</td>
+            </tr>
+            <tr>
+                <td>Art Society</td>
+                <td>Club</td>
+                <td>Interested</td>
+            </tr>
+            <tr>
+                <td>Reading Circle</td>
+                <td>Club</td>
+                <td>Not Joined</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
         <!-- Footer and Bootstrap Scripts as in your original code -->
-        <script>
-            // JavaScript code for initializing charts and tables
-            // Include your actual data and customization as needed
-
-            // Example: Academic Progress Chart
-            var academicProgressChart = new Chart(document.getElementById('academicProgressChart').getContext('2d'), {
-                type: 'bar',
-                data: {
-                    labels: ['Semester 1', 'Semester 2', 'Semester 3'],
-                    datasets: [{
-                        label: 'GPA',
-                        data: [3.5, 3.8, 4.0],
-                        backgroundColor: ['#3498db', '#2ecc71', '#e74c3c'],
-                    }],
+<script>
+    // Example: Academic Progress Line Chart
+    var academicProgressChart = new Chart(document.getElementById('academicProgressChart').getContext('2d'), {
+    type: 'line',
+    data: {
+        labels: ['First Quarter', 'Second Quarter', 'Third Quarter', 'Fourth Quarter'],
+        datasets: [
+            {
+                label: 'Mathematics',
+                data: [90, 89, 86, 93], // Replace with actual GPA data for each quarter
+                fill: false,
+                borderColor: '#3498db', // Line color
+            },
+            {
+                label: 'Science',
+                data: [85, 88, 82, 90], // Replace with actual GPA data for each quarter
+                fill: false,
+                borderColor: '#e74c3c', // Line color for Science
+            },
+            {
+                label: 'Language',
+                data: [88, 85, 90, 87], // Replace with actual GPA data for each quarter
+                fill: false,
+                borderColor: '#2ecc71', // Line color for Language
+            },
+            {
+                label: 'Art',
+                data: [82, 78, 85, 80], // Replace with actual GPA data for each quarter
+                fill: false,
+                borderColor: '#f39c12', // Line color for Art
+            },
+        ],
+    },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    max: 100.0, // Set the maximum value to 5.0
+                    min: 70.0, // Set the minimum value to 1.0
+                    reverse: false, // Reverse the scale
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                },
-            });
+            },
+        },
+    });
+    // Subject Filter Event Listener
+document.getElementById('subjectFilter').addEventListener('change', function () {
+    // Get the selected subject
+    var selectedSubject = this.value;
 
-            // Example: Grades Table
-            $(document).ready(function () {
-                $('#gradesTable').DataTable();
-            });
+    // Check if the selected subject exists in the subjectData
+    if (selectedSubject in subjectData) {
+        // Update the chart with the data for the selected subject
+        updateAcademicProgress(selectedSubject);
+    }
+});
+</script>
 
-            // Additional chart and table initialization as needed
-        </script>
+
 </body>
 
 </html>

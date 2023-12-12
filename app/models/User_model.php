@@ -9,6 +9,11 @@ class User_model extends Model {
         return $data;
     }
 
+    public function getStudent()
+    {
+        return $this->db->table('students')->get_all();
+    }
+
     public function register($data)
     {
         $data = array(
@@ -56,43 +61,120 @@ class User_model extends Model {
 
     public function getUserDataById($userId)
     {
-
         return $this->db->table('account')->where('id', $userId)->get();
-
     }
-    public function registerWithImage($data)
+
+    public function get_last_20_entries()
     {
-        $upload_config = array(
-            'upload_path'   => './public/img/',
-            'allowed_types' => 'jpg|jpeg|png',
-            'max_size'      => 2048, // 2MB
-            'encrypt_name'  => TRUE
+        $data = $this->db->table('admin')->limit(20)->get()->result();
+        return $data;
+    }
+    
+    public function getAdmin()
+    {
+        return $this->db->table('admin')->get_all();
+    }
+    
+    public function registerAdmin($data)
+    {
+        $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
+    
+        $adminData = array(
+            'username' => $data['username'],
+            'password' => $hashedPassword,
+            'tech_id' => $data['tech_id'],
+            'fname' => $data['fname'],
+            'mname' => $data['mname'],
+            'lname' => $data['lname'],
+            'gender' => $data['gender'],
+            'dob' => $data['dob'],
+            'cnum' => $data['cnum'],
+            'email' => $data['email'],
+            'homeadd' => $data['homeadd'],
         );
+    
+        $this->db->table('admin')->insert($adminData);
+    }
+    
+    public function updateAdminEntry()
+    {
+        $bind = array(
+            'username' => $this->input->post('username'),
+            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            'tech_id' => $this->input->post('tech_id'),
+            'fname' => $this->input->post('fname'),
+            'mname' => $this->input->post('mname'),
+            'lname' => $this->input->post('lname'),
+            'gender' => $this->input->post('gender'),
+            'dob' => $this->input->post('dob'),
+            'cnum' => $this->input->post('cnum'),
+            'email' => $this->input->post('email'),
+            'homeadd' => $this->input->post('homeadd'),
+            'date' => time(),
+        );
+    
+        $this->db->table('admin')->where('id', $this->input->post('id'))->update($bind);
+    }
+    
+    public function verifyAdmin($adminID)
+    {
+        $this->db->table('admin')
+            ->where('id', $adminID)
+            ->update(['IsVerified' => true]);
+    }
+    
+    public function authenticateAdmin($username, $password)
+    {
+        $admin = $this->db->table('admin')
+            ->where('username', $username)
+            ->get();
+    
+        if ($admin && password_verify($password, $admin['password'])) {
+            return $admin;
+        } else {
+            return null;
+        }
+    }
+    
+    public function getAdminDataById($adminId)
+    {
+        return $this->db->table('admin')->where('id', $adminId)->get();
+    }
+    
 
-        $this->load->library('upload', $upload_config);
+    // Integration with grades table
+    // public function getGradesData()
+    // {
+    //     $data = $this->db->table('grades')->get_all();
+    //     return $data;
+    // }
 
-        if ($this->upload->do_upload()) {
-            $file_data = $this->upload->data();
+    // Integration with acadprog table
+    // public function saveAcademicProgress($acadprogData)
+    // {
+    //     $this->db->table('acadprog')->insert($acadprogData);
+    // }
 
-            $user_data = array(
+    // Integration with club table
+    // public function saveClubInvolvement($clubData)
+    // {
+    //     $this->db->table('club')->insert($clubData);
+    // }
+
+    public function registerstudent($data)
+    {
+
+        $data = array(
                 'idnumber' => $data['idnumber'],
                 'fullname' => $data['fullname'],
                 'age'      => $data['age'],
                 'birthday' => $data['birthday'],
                 'gender'   => $data['gender'],
                 'address'  => $data['address'],
-                'section'  => $data['section'],
-                'picture'  => 'public/img/' . $file_data['file_name']
             );
 
-            // Add session data
-            $this->session->set_userdata('user_data', $user_data);
-
-            $this->db->insert('students', $user_data);
-            return true;
-        } else {
-            return false;
+            $this->db->table('students')->insert($data);
         }
     }
-}
+
 ?>

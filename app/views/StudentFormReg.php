@@ -29,59 +29,48 @@
                                 <div class="service-content d-flex align-items-center justify-content-center">
                                     <div class="container">
                                         <h2 class="text-emerald-600">Student Registration</h2>
-                                        <?php if (isset($errors)) { // Check if $errors is set before looping through it ?>
-                                            <?php foreach ($errors as $error) { ?>
-                                                <div class="alert alert-danger" role="alert">
-                                                    <?= $error ?>
+                                        
+                                        <form action="<?= site_url('regAuth') ?>" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <!-- First Row -->
+                                                <div class="mb-3">
+                                                    <label for="idnumber" class="form-label">ID Number</label>
+                                                    <input type="text" class="form-control" id="idnumber" name="idnumber" required>
                                                 </div>
-                                            <?php } ?>
-                                        <?php } ?>
-                                        <form action="<?= site_url('upload/do_upload') ?>" method="post" enctype="multipart/form-data">
-                                            <!-- Add your form fields here -->
-                                            <div class="mb-3">
-                                                <label for="idnumber" class="form-label">ID Number</label>
-                                                <input type="text" class="form-control" id="idnumber" name="idnumber" required>
+
+                                                <div class="mb-3">
+                                                    <label for="fullname" class="form-label">Full Name</label>
+                                                    <input type="text" class="form-control" id="fullname" name="fullname" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="gender" class="form-label">Gender</label>
+                                                    <input type="text" class="form-control" id="gender" name="gender">
+                                                </div>
                                             </div>
 
-                                            <div class="mb-3">
-                                                <label for="fullname" class="form-label">Full Name</label>
-                                                <input type="text" class="form-control" id="fullname" name="fullname" required>
+                                            <div class="col-md-6">
+                                                <!-- Second Row -->
+                                                <div class="mb-3">
+                                                    <label for="age" class="form-label">Age</label>
+                                                    <input type="text" class="form-control" id="age" name="age">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="birthday" class="form-label">Birthday</label>
+                                                    <input type="text" class="form-control" id="birthday" name="birthday">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="address" class="form-label">Address</label>
+                                                    <input type="text" class="form-control" id="address" name="address">
+                                                </div>
                                             </div>
+                                        </div>
 
-                                            <div class="mb-3">
-                                                <label for="age" class="form-label">Age</label>
-                                                <input type="text" class="form-control" id="age" name="age">
-                                            </div>
+                                        <button type="submit" class="btn btn-primary mt-3">Add My Student</button>
+                                    </form>
 
-                                            <div class="mb-3">
-                                                <label for="birthday" class="form-label">Birthday</label>
-                                                <input type="text" class="form-control" id="birthday" name="birthday">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="gender" class="form-label">Gender</label>
-                                                <input type="text" class="form-control" id="gender" name="gender">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="address" class="form-label">Address</label>
-                                                <input type="text" class="form-control" id="address" name="address">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="section" class="form-label">Section</label>
-                                                <input type="text" class="form-control" id="section" name="section">
-                                            </div>
-
-                                            <label for="file" class="form-label">Upload Picture</label>
-                                            <input type="file" class="form-control" id="file" name="file" size="" required>
-
-                                            <button type="submit" class="btn btn-primary mt-3">Register</button>
-                                        </form>
-
-                                        <p class="mt-4 text-center text-lg text-gray-700" style="color: white; font-size: 17px">
-                                            Already have an account? <a href="<?= site_url('login') ?>" style="color: aqua; text-decoration: underline">Login</a>
-                                        </p>
                                     </div>
                                 </div>
                             </div>

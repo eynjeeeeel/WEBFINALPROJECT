@@ -48,14 +48,27 @@ $router->get('sitevisit', 'UserController::sitevisit', 'GET|POST');
 $router->get('home', 'UserController::home', 'GET|POST');
 $router->get('about', 'UserController::about');
 $router->get('studprof', 'UserController::studprof');
+$router->get('admindb', 'UserController::admindb');
 $router->get('classes', 'UserController::classes');
 $router->get('facilities', 'UserController::facilities');
-$router->get('register', 'UserController::register');
-$router->get('navbarhome', 'UserController::navbarhome');
+
+$router->get('childregister', 'UserController::regchild');
 $router->get('StudentFormReg', 'UserController::StudentFormReg');
+$router->match('regAuth', 'UserController::regAuth', 'GET|POST');
+$router->get('studentprofile', 'UserController::getStudent');
+
+$router->get('register', 'UserController::register');
 $router->match('registerAuth', 'UserController::registerAuth', 'GET|POST');
 $router->get('login', 'UserController::login');
 $router->match('loginAuth', 'UserController::loginAuth', 'GET|POST');
 $router->get('logout', 'UserController::logout');
+
+$router->get('adminregister', 'UserController::adminreg');
+$router->match('adminregAuth', 'UserController::adminregAuth', 'GET|POST');
+$router->get('adminlogin', 'UserController::adminlogin');
+$router->match('adminloginAuth', 'UserController::adminloginAuth', 'GET|POST');
+$router->get('adminlogout', 'UserController::adminlogout');
+
+$router->get('grades', 'UserController::grades');
 
 $router->match('upload/do_upload', 'UploadController::do_upload', 'POST');
