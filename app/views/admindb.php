@@ -178,11 +178,11 @@
 
         <section class="form-section">
             <h2>Student's Behavioral & Social Development</h2>
-            <form action="<?= site_url('addbehavioralinfo') ?>" method="POST">
+            <form action="submit_behavioral_social.php" method="post">
                 <label for="behavior">Behavior:</label>
-                <input type="text" class="form-control" id="behavior" name="behavior" required>
+                <textarea name="behavior" required></textarea>
                 <label for="social_skills">Social Skills:</label>
-                <input type="text" class="form-control" id="social_skills" name="social_skills" required>
+                <textarea name="social_skills" required></textarea>
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>

@@ -182,7 +182,6 @@ class User_model extends Model {
         $data = array(
                 'emergency_name' => $data['emergency_name'],
                 'emergency_contact' => $data['emergency_contact'],
-                'userid' => $data['userid'],
             );
 
             $this->db->table('econ')->insert($data);
@@ -199,34 +198,13 @@ class User_model extends Model {
             $this->db->table('hinfo')->insert($data);
     }
 
-    public function addbsdev($data)
-    {
-
-        $data = array(
-                'behavior' => $data['behavior'],
-                'social_skills' => $data['social_skills'],
-            );
-
-            $this->db->table('bsdev')->insert($data);
-    }
-    
     public function getemen($id)
     {
-        return  $this->db->table('econ')->where('id', $id)->get();
+        $data = $this->db->table('econ')->where('id', $id)->get();
+        return $data;
     }
 
-    public function getContactInfo($id){
-        return $this->db->table('econ')->where('userid',$id)->get();
-    }
-
-    public function getHealthInfo($id){
-        return $this->db->table('hinfo')->where('userid',$id)->get();
-    }
-
-    public function getBehavioralInfo($id){
-        return $this->db->table('bsdev')->where('userid',$id)->get();
-    }
-
+    
 }
 
 ?>
