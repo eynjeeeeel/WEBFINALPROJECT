@@ -175,6 +175,58 @@ class User_model extends Model {
 
             $this->db->table('students')->insert($data);
         }
+
+    public function addecon($data)
+    {
+
+        $data = array(
+                'emergency_name' => $data['emergency_name'],
+                'emergency_contact' => $data['emergency_contact'],
+                'userid' => $data['userid'],
+            );
+
+            $this->db->table('econ')->insert($data);
     }
+
+    public function addhinfo($data)
+    {
+
+        $data = array(
+                'blood_type' => $data['blood_type'],
+                'allergies' => $data['allergies'],
+            );
+
+            $this->db->table('hinfo')->insert($data);
+    }
+
+    public function addbsdev($data)
+    {
+
+        $data = array(
+                'behavior' => $data['behavior'],
+                'social_skills' => $data['social_skills'],
+            );
+
+            $this->db->table('bsdev')->insert($data);
+    }
+    
+    public function getemen($id)
+    {
+        return  $this->db->table('econ')->where('id', $id)->get();
+    }
+
+    public function getContactInfo($id){
+        return $this->db->table('econ')->where('userid',$id)->get();
+    }
+
+    public function getHealthInfo($id){
+        return $this->db->table('hinfo')->where('userid',$id)->get();
+    }
+
+    public function getBehavioralInfo($id){
+        return $this->db->table('bsdev')->where('userid',$id)->get();
+    }
+
+}
 
 ?>

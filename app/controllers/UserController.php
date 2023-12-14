@@ -12,8 +12,22 @@ class UserController extends Controller {
     }
 
     public function studprof(){
-        $this->call->view('studprof');
+        $userid = $_SESSION['id'];
+
+        $contactInfo = $this->User_model->getContactInfo($userid);
+        $healthInfo = $this->User_model->getHealthInfo($userid);
+        $behavioralInfo = $this->User_model->getBehavioralInfo($userid);
+
+        $data = [
+            'contactInfo' => $contactInfo,
+            'healthInfo' => $healthInfo,
+            'behavioralInfo' => $behavioralInfo,
+        ];
+
+        $this->call->view('studprof',$data);
     }
+
+
 
     public function admindb(){
         $this->call->view('admindb');
@@ -238,7 +252,60 @@ class UserController extends Controller {
             redirect('home');
         }
     }
+    public function emergencycontact(){
+        $this->call->view('studprof');
+    }
+    public function addemergency()
+    {
+        {
+            $user_data = [
+                'emergency_name' => $this->io->post('emergency_name'),
+                'emergency_contact' => $this->io->post('emergency_contact'),
+                'userid' => $this->io->post('userid'),
+            ];
+            $this->User_model->addecon($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
 
+    public function healthinfo(){
+        $this->call->view('studprof');
+    }
+    public function addhealthinfo()
+    {
+        {
+            $user_data = [
+                'blood_type' => $this->io->post('blood_type'),
+                'allergies' => $this->io->post('allergies'),
+            ];
+            $this->User_model->addhinfo($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
+
+    public function behavioralinfo(){
+        $this->call->view('studprof');
+    }
+    public function addbehavioralinfo()
+    {
+        {
+            $user_data = [
+                'behavior' => $this->io->post('behavior'),
+                'social_skills' => $this->io->post('social_skills'),
+            ];
+            $this->User_model->addbsdev($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
+
+
+    public function econ($id){
+        $data['emen'] = $this->User_model->getemen($id);
+        return $this->call->view('StudInfo', $data);
+    }
 
 
     public function register(){

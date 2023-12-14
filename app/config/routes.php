@@ -63,6 +63,13 @@ $router->get('login', 'UserController::login');
 $router->match('loginAuth', 'UserController::loginAuth', 'GET|POST');
 $router->get('logout', 'UserController::logout');
 
+$router->get('emergencycontact', 'UserController::emergencycontact');
+$router->match('addemergency', 'UserController::addemergency', 'GET|POST');
+$router->get('healthinfo', 'UserController::healthinfo');
+$router->match('addhealthinfo', 'UserController::addhealthinfo', 'GET|POST');
+$router->get('behavioralinfo', 'UserController::behavioralinfo');
+$router->match('addbehavioralinfo', 'UserController::addbehavioralinfo', 'GET|POST');
+
 $router->get('adminregister', 'UserController::adminreg');
 $router->match('adminregAuth', 'UserController::adminregAuth', 'GET|POST');
 $router->get('adminlogin', 'UserController::adminlogin');

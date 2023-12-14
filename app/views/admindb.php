@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -131,7 +132,7 @@
                 <input type="text" name="facility_name" required>
                 <label for="facility_description">Description:</label>
                 <textarea name="facility_description" required></textarea>
-                <input type="submit" value="Submit">
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
 
@@ -142,18 +143,21 @@
                 <input type="text" name="teacher_name" required>
                 <label for="teacher_subject">Subject:</label>
                 <input type="text" name="teacher_subject" required>
-                <input type="submit" value="Submit">
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
 
         <section class="form-section">
             <h2>Student's Emergency Contact</h2>
-            <form action="submit_emergency_contact.php" method="post">
+            <form action="<?= site_url('addemergency') ?>" method="POST">
+
                 <label for="emergency_name">Name:</label>
-                <input type="text" name="emergency_name" required>
+                <input type="text" class="form-control" id="emergency_name" name="emergency_name" required>
+
                 <label for="emergency_contact">Contact:</label>
-                <input type="text" name="emergency_contact" required>
-                <input type="submit" value="Submit">
+                <input type="text" class="form-control" id="emergency_contact" name="emergency_contact" required>
+
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
     </div>
@@ -161,23 +165,25 @@
     <div class="form-row">
         <section class="form-section">
             <h2>Student's Health Information</h2>
-            <form action="submit_health_info.php" method="post">
+            <form action="<?= site_url('addhealthinfo') ?>" method="POST">
                 <label for="blood_type">Blood Type:</label>
-                <input type="text" name="blood_type" required>
+                <input type="text" class="form-control" id="blood_type" name="blood_type" required>
+
                 <label for="allergies">Allergies:</label>
-                <input type="text" name="allergies" required>
-                <input type="submit" value="Submit">
+                <input type="text" class="form-control" id="allergies" name="allergies" required>
+
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
 
         <section class="form-section">
             <h2>Student's Behavioral & Social Development</h2>
-            <form action="submit_behavioral_social.php" method="post">
+            <form action="<?= site_url('addbehavioralinfo') ?>" method="POST">
                 <label for="behavior">Behavior:</label>
-                <textarea name="behavior" required></textarea>
+                <input type="text" class="form-control" id="behavior" name="behavior" required>
                 <label for="social_skills">Social Skills:</label>
-                <textarea name="social_skills" required></textarea>
-                <input type="submit" value="Submit">
+                <input type="text" class="form-control" id="social_skills" name="social_skills" required>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
         <!-- Add more sections/forms as needed -->
