@@ -176,6 +176,40 @@ class User_model extends Model {
             $this->db->table('students')->insert($data);
         }
 
+
+        public function addbsdev($data)
+        {
+    
+            $data = array(
+                    'behavior' => $data['behavior'],
+                    'social_skills' => $data['social_skills'],
+                );
+    
+                $this->db->table('bsdev')->insert($data);
+        }
+
+        public function addtinfo($data)
+        {
+    
+            $data = array(
+                    'teacher_name' => $data['teacher_name'],
+                    'teacher_subject' => $data['teacher_subject'],
+                );
+    
+                $this->db->table('tinfo')->insert($data);
+        }
+
+        public function addsfacilities($data)
+        {
+    
+            $data = array(
+                    'facility_name' => $data['facility_name'],
+                    'facility_description' => $data['facility_description'],
+                );
+    
+                $this->db->table('sfacilities')->insert($data);
+        }
+
     public function addecon($data)
     {
 

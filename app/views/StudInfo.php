@@ -132,8 +132,8 @@
             <div class="bg-light rounded p-4">
                 <div class="d-block text-center h3 mt-3 mb-4 profile-title">Emergency Contact</div>
                 <div class="border-top">
-                    <h6 class="mb-1">Name: <?= $contactInfo['emergency_name']?></h6>
-                    <small>Contact: +63 <?= $contactInfo['emergency_contact']?></small>
+                    <h6 class="mb-1">Name: Leynard</h6>
+                    <small>Contact: 09999999999</small>
                 </div>
             </div>
         </div>
@@ -145,8 +145,8 @@
             <div class="bg-light rounded p-4">
                 <div class="d-block text-center h3 mt-3 mb-4 profile-title">Health Information</div>
                 <div class="border-top">
-                    <h6 class="mb-1">Blood Type: <?= $healthInfo['blood_type']?></h6>
-                    <small>Allergies: <?= $healthInfo['allergies']?></small>
+                    <h6 class="mb-1">Blood Type: O+</h6>
+                    <small>Allergies: Sinus</small>
                 </div>
             </div>
         </div>
@@ -158,8 +158,8 @@
             <div class="bg-light rounded p-4">
                 <div class="d-block text-center h3 mt-3 mb-4 profile-title">Behavioral & Social Development</div>
                 <div class="border-top">
-                    <!-- <h6 class="mb-1">Behavior: <?= $behavioralInfo['behavior']?></h6>
-                    <small>Social Skills: <?= $behavioralInfo['social_skills']?></small> -->
+                    <h6 class="mb-1">Behavior: Cognitive</h6>
+                    <small>Social Skills: Developing</small> 
                 </div>
             </div>
         </div>

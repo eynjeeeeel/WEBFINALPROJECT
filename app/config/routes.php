@@ -67,7 +67,12 @@ $router->get('emergencycontact', 'UserController::emergencycontact');
 $router->match('addemergency', 'UserController::addemergency', 'GET|POST');
 $router->get('healthinfo', 'UserController::healthinfo');
 $router->match('addhealthinfo', 'UserController::addhealthinfo', 'GET|POST');
-
+$router->get('behavioralinfo', 'UserController::behavioralinfo');
+$router->match('addbehavioralinfo', 'UserController::addbehavioralinfo', 'GET|POST');
+$router->get('teachersinfo', 'UserController::teachersinfo');
+$router->match('addteachersinfo', 'UserController::addteachersinfo', 'GET|POST');
+$router->get('facilityinfo', 'UserController::facilityinfo');
+$router->match('addfacilityinfo', 'UserController::addfacilityinfo', 'GET|POST');
 
 $router->get('adminregister', 'UserController::adminreg');
 $router->match('adminregAuth', 'UserController::adminregAuth', 'GET|POST');

@@ -238,6 +238,10 @@ class UserController extends Controller {
             redirect('home');
         }
     }
+
+
+
+
     public function emergencycontact(){
         $this->call->view('studprof');
     }
@@ -253,6 +257,7 @@ class UserController extends Controller {
             redirect('admindb');
         }
     }
+
 
     public function healthinfo(){
         $this->call->view('studprof');
@@ -270,10 +275,65 @@ class UserController extends Controller {
         }
     }
 
+    public function behavioralinfo(){
+        $this->call->view('studprof');
+    }
+    public function addbehavioralinfo()
+    {
+        {
+            $user_data = [
+                'behavior' => $this->io->post('behavior'),
+                'social_skills' => $this->io->post('social_skills'),
+            ];
+            $this->User_model->addbsdev($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
+
+    public function facilitiyinfo(){
+        $this->call->view('studprof');
+    }
+    public function addfacilityinfo()
+    {
+        {
+            $user_data = [
+                'facility_name' => $this->io->post('facility_name'),
+                'facility_description' => $this->io->post('facility_description'),
+            ];
+            $this->User_model->addsfacilities($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
+
+    public function teachersinfo(){
+        $this->call->view('studprof');
+    }
+    public function addteachersinfo()
+    {
+        {
+            $user_data = [
+                'teacher_name' => $this->io->post('teacher_name'),
+                'teacher_subject' => $this->io->post('teacher_subject'),
+            ];
+            $this->User_model->addtinfo($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
     public function econ($id){
         $data['emen'] = $this->User_model->getemen($id);
         return $this->call->view('StudInfo', $data);
     }
+
+
+
+
+
+
+
+
 
 
     public function register(){

@@ -127,22 +127,26 @@
     <div class="form-row">
         <section class="form-section">
             <h2>School Facilities</h2>
-            <form action="submit_facilities.php" method="post">
+            <form action="<?= site_url('addfacilityinfo') ?>" method="POST">
+
                 <label for="facility_name">Name:</label>
-                <input type="text" name="facility_name" required>
+                <input type="text" class="form-control" id="facility_name" name="facility_name" required>
+
                 <label for="facility_description">Description:</label>
-                <textarea name="facility_description" required></textarea>
+                <input type="text" class="form-control" id="facility_description" name="facility_description" required>
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
 
         <section class="form-section">
             <h2>School Teachers Information</h2>
-            <form action="submit_teachers.php" method="post">
-                <label for="teacher_name">Teacher's Name:</label>
-                <input type="text" name="teacher_name" required>
-                <label for="teacher_subject">Subject:</label>
-                <input type="text" name="teacher_subject" required>
+            <form action="<?= site_url('addteachersinfo') ?>" method="POST">
+
+            <label for="teacher_name">Teacher's Name:</label>
+            <input type="text" class="form-control" id="teacher_name" name="teacher_name" required>
+
+            <label for="teacher_subject">Subject:</label>
+            <input type="text" class="form-control" id="teacher_subject" name="teacher_subject" required>
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
@@ -178,11 +182,13 @@
 
         <section class="form-section">
             <h2>Student's Behavioral & Social Development</h2>
-            <form action="submit_behavioral_social.php" method="post">
+            <form action="<?= site_url('addbehavioralinfo') ?>" method="POST">
+
                 <label for="behavior">Behavior:</label>
-                <textarea name="behavior" required></textarea>
+                <input type="text" class="form-control" id="behavior" name="behavior" required>
+
                 <label for="social_skills">Social Skills:</label>
-                <textarea name="social_skills" required></textarea>
+                <input type="text" class="form-control" id="social_skills" name="social_skills" required>
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
