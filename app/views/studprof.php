@@ -144,7 +144,6 @@
                                         <th>Second Quarter</th>
                                         <th>Third Quarter</th>
                                         <th>Fourth Quarter</th>
-                                        <th>GWA</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -155,7 +154,6 @@
                                         <td>89</td>
                                         <td>86</td>
                                         <td>93</td>
-                                        <td>89.50</td>
                                     </tr>
                                     <!-- Science -->
                                     <tr>
@@ -164,7 +162,6 @@
                                         <td>88</td>
                                         <td>82</td>
                                         <td>90</td>
-                                        <td>86.25</td>
                                     </tr>
                                     <!-- Language -->
                                     <tr>
@@ -173,7 +170,6 @@
                                         <td>85</td>
                                         <td>90</td>
                                         <td>87</td>
-                                        <td>87.50</td>
                                     </tr>
                                     <!-- Art -->
                                     <tr>
@@ -182,7 +178,6 @@
                                         <td>78</td>
                                         <td>85</td>
                                         <td>80</td>
-                                        <td>81.25</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -300,45 +295,7 @@
                 </div>
 
 
-                <!-- Child's Class and Campus Involvement Section -->
-<div class="profile-section">
-    <h2 class="mb-3 class-title">Child's Class and Campus Involvement</h2>
-    <p>Explore your child's participation in clubs, organizations, and other subject-related activities in this section.</p>
-
-    <!-- Example: Club and Organization Membership Table -->
-    <table id="childInvolvementTable" class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Activity Name</th>
-                <th>Activity Type</th>
-                <th>Membership Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Math Club</td>
-                <td>Club</td>
-                <td>Active Member</td>
-            </tr>
-            <tr>
-                <td>Science Fair</td>
-                <td>Event</td>
-                <td>Participating</td>
-            </tr>
-            <tr>
-                <td>Art Society</td>
-                <td>Club</td>
-                <td>Interested</td>
-            </tr>
-            <tr>
-                <td>Reading Circle</td>
-                <td>Club</td>
-                <td>Not Joined</td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </tbody>
-    </table>
-</div>
+               
 
         <!-- Footer and Bootstrap Scripts as in your original code -->
 <script>

@@ -21,7 +21,8 @@
                                 <div class="service-content d-flex align-items-center justify-content-center">
                                     <div class="container">
                                         <h2 class="text-emerald-600">ACMCL Admin Registration</h2>
-                                        <form action="<?= site_url('adminregAuth') ?>" method="POST">
+                                        <form id="registrationForm" action="<?= site_url('adminregAuth') ?>" method="POST"
+                                            onsubmit="return validateForm()">
                                             <div class="mb-2">
                                                 <label for="inputUsername" class="form-label">Username</label>
                                                 <input type="text" class="form-control" id="inputUsername" placeholder="Enter your username" required
@@ -33,10 +34,11 @@
                                                     name="password">
                                             </div>
                                             <div class="mb-2">
-                                                <label for="inputPassword" class="form-label">Confirm Password</label>
+                                                <label for="inputConfirmPassword" class="form-label">Confirm Password</label>
                                                 <input type="password" class="form-control" id="inputConfirmPassword"
                                                     aria-describedby="passwordHelpInline" required name="confirmpassword">
                                             </div>
+------------------------------------------------------------------------------
                                             <div class="mb-2">
                                                 <label for="inputTechId" class="form-label">Tech ID</label>
                                                 <input type="text" class="form-control" id="inputTechId" placeholder="Enter your Tech ID" required
@@ -83,11 +85,15 @@
                                                 <input type="text" class="form-control" id="inputHomeadd" placeholder="Enter your home address"
                                                     required name="homeadd">
                                             </div>
+-------------------------------------------------------------------
+                                            <!-- Add other form fields as needed -->
                                             <button type="submit" class="btn btn-primary">Register</button>
                                         </form>
+                                        <div id="errorNotification" class="mt-3 text-center text-lg text-gray-700" style="color: white; font-size: 17px; display: none;">
+                                            Please fill in all required fields and ensure password match.
+                                        </div>
                                         <p class="mt-4 text-center text-lg text-gray-700" style="color: white; font-size: 17px">
-                                            Already have an account? <a href="<?= site_url('adminlogin') ?>"
-                                                style="color: aqua; text-decoration: underline">Login</a>
+                                            Already have an account? <a href="<?= site_url('adminlogin') ?>" style="color: aqua; text-decoration: underline">Login</a>
                                         </p>
                                     </div>
                                 </div>
@@ -100,6 +106,25 @@
         </div>
     </div>
     <?php include 'scriptLT.php'; ?>
+    <script>
+        function validateForm() {
+            var username = document.getElementById('inputUsername').value;
+            var password = document.getElementById('inputPassword').value;
+            var confirmPassword = document.getElementById('inputConfirmPassword').value;
+            // Add validation for other fields as needed
+
+            // Check for empty fields
+            if (!username || !password || !confirmPassword) {
+                document.getElementById('errorNotification').style.display = 'block';
+                return false;
+            }
+
+            // Add more validation logic as needed
+
+            // If all validations pass
+            return true;
+        }
+    </script>
 </body>
 
 </html>
