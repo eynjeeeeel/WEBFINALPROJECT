@@ -139,7 +139,7 @@ class UserController extends Controller {
     
         if ($this->form_validation->run() == false) {
             $_SESSION['errors'] = $this->form_validation->get_errors();
-            $this->session->mark_as_flash('errors', 'Registration Failed. Please try again!');
+            $this->session->mark_as_flash('errors', 'Registration Failed. Please fill in all required fields.');
             redirect('adminregister');
         } else {
             $data = [
@@ -157,10 +157,11 @@ class UserController extends Controller {
             ];
     
             $this->User_model->registerAdmin($data);
-            $this->session->set_flashdata('success', 'Registration successful.');
+            $this->session->set_flashdata('success', 'Registration successful. You have met all the required fields.');
             redirect('adminlogin');
         }
     }
+    
     
     public function set_log_in($id)
     {

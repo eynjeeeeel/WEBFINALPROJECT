@@ -38,7 +38,7 @@
                                                 <input type="password" class="form-control" id="inputConfirmPassword"
                                                     aria-describedby="passwordHelpInline" required name="confirmpassword">
                                             </div>
-------------------------------------------------------------------------------
+
                                             <div class="mb-2">
                                                 <label for="inputTechId" class="form-label">Tech ID</label>
                                                 <input type="text" class="form-control" id="inputTechId" placeholder="Enter your Tech ID" required
@@ -85,12 +85,16 @@
                                                 <input type="text" class="form-control" id="inputHomeadd" placeholder="Enter your home address"
                                                     required name="homeadd">
                                             </div>
--------------------------------------------------------------------
+
                                             <!-- Add other form fields as needed -->
                                             <button type="submit" class="btn btn-primary">Register</button>
                                         </form>
+                                        <div id="successNotification" class="mt-3 text-center text-lg text-gray-700" style="color: white; font-size: 17px; display: none;">
+                                            Registration Successful. You have filled in all required fields.
+                                        </div>
+
                                         <div id="errorNotification" class="mt-3 text-center text-lg text-gray-700" style="color: white; font-size: 17px; display: none;">
-                                            Please fill in all required fields and ensure password match.
+                                            Please fill in all required fields and ensure the password matches.
                                         </div>
                                         <p class="mt-4 text-center text-lg text-gray-700" style="color: white; font-size: 17px">
                                             Already have an account? <a href="<?= site_url('adminlogin') ?>" style="color: aqua; text-decoration: underline">Login</a>
@@ -111,17 +115,31 @@
             var username = document.getElementById('inputUsername').value;
             var password = document.getElementById('inputPassword').value;
             var confirmPassword = document.getElementById('inputConfirmPassword').value;
+            var inputTechId  = document.getElementById('inputTechId').value;
+            var inputFname  = document.getElementById('inputFname').value;
+            var inputMname  = document.getElementById('inputMname').value;
+            var inputLname  = document.getElementById('inputLname').value;
+            var inputGender  = document.getElementById('inputGender').value;
+            var inputDob  = document.getElementById('inputDob').value;
+            var inputCnum  = document.getElementById('inputCnum').value;
+            var inputEmail  = document.getElementById('inputEmail').value;
+            var inputHomeadd  = document.getElementById('inputHomeadd').value;
             // Add validation for other fields as needed
 
             // Check for empty fields
-            if (!username || !password || !confirmPassword) {
+            if (!username || !password || !confirmPassword || !inputTechId || !inputFname || !inputMname || !inputLname || !inputGender || !inputDob || !inputCnum || !inputEmail || !inputHomeadd ) 
+            {
                 document.getElementById('errorNotification').style.display = 'block';
+                document.getElementById('successNotification').style.display = 'none';
                 return false;
             }
 
             // Add more validation logic as needed
 
             // If all validations pass
+            document.getElementById('successNotification').style.display = 'block';
+            document.getElementById('errorNotification').style.display = 'none';
+            return true;
             return true;
         }
     </script>
