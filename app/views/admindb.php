@@ -61,11 +61,11 @@
 
         .form-row {
             display: flex;
-            gap: 5px;
-            margin-bottom: 20px;
-            justify-content: space-between;
-            margin-left: 30px;
-            margin-right: 30px;
+            gap: 30px;
+            /* margin-bottom: 20px; */
+            /* justify-content: space-between; */
+            margin-left: 32px;
+            /* margin-right: 40px; */
             margin-top: 30px;
         }
 
@@ -73,15 +73,53 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 10px;
             height: 300px;
+            width: 300px;
 
         }
+
+        .form-section-min {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            height: 300px;
+            width: 230px;
+
+        }
+
+        .form-section-grade {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: 475px;
+            width: 800px;
+            gap: 30px;
+        }
+
+        .form-section-qgrade {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: 340px;
+            gap: 30px;
+        }
+
 
         form {
             display: flex;
             flex-direction: column;
-            width: 400px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .form1 {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
             height: 300px;
         }
 
@@ -138,9 +176,9 @@
             </form>
         </section>
 
-        <section class="form-section">
-            <h2>School Teachers Information</h2>
-            <form action="<?= site_url('addteachersinfo') ?>" method="POST">
+        <section class="form-section-min">
+            <h2>Teacher's Class Subject</h2>
+            <form  class="form1" action="<?= site_url('addteachersinfo') ?>" method="POST">
 
             <label for="teacher_name">Teacher's Name:</label>
             <input type="text" class="form-control" id="teacher_name" name="teacher_name" required>
@@ -151,9 +189,9 @@
             </form>
         </section>
 
-        <section class="form-section">
+        <section class="form-section-min">
             <h2>Student's Emergency Contact</h2>
-            <form action="<?= site_url('addemergency') ?>" method="POST">
+            <form class="form1" action="<?= site_url('addemergency') ?>" method="POST">
 
                 <label for="emergency_name">Name:</label>
                 <input type="text" class="form-control" id="emergency_name" name="emergency_name" required>
@@ -164,12 +202,10 @@
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
-    </div>
-
-    <div class="form-row">
-        <section class="form-section">
+        
+        <section class="form-section-min">
             <h2>Student's Health Information</h2>
-            <form action="<?= site_url('addhealthinfo') ?>" method="POST">
+            <form class="form1" action="<?= site_url('addhealthinfo') ?>" method="POST">
                 <label for="blood_type">Blood Type:</label>
                 <input type="text" class="form-control" id="blood_type" name="blood_type" required>
 
@@ -180,9 +216,9 @@
             </form>
         </section>
 
-        <section class="form-section">
-            <h2>Student's Behavioral & Social Development</h2>
-            <form action="<?= site_url('addbehavioralinfo') ?>" method="POST">
+        <section class="form-section-min">
+            <h2>Student's Development</h2>
+            <form class="form1" action="<?= site_url('addbehavioralinfo') ?>" method="POST">
 
                 <label for="behavior">Behavior:</label>
                 <input type="text" class="form-control" id="behavior" name="behavior" required>
@@ -192,9 +228,91 @@
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
         </section>
-        <!-- Add more sections/forms as needed -->
     </div>
-            </div></div></div>
+
+    <div class="form-row">
+        <section class="form-section-grade">
+            <h2>Student's Quarterly Grade</h2>
+            <section class="form-section-qgrade">
+                <form action="<?= site_url('addfirstquarter') ?>" method="POST">
+                    <label for="mathematics_grade">Math:</label>
+                    <input type="text" class="form-control" id="mathematics_grade" name="mathematics_grade" required>
+
+                    <label for="science_grade">Science:</label>
+                    <input type="text" class="form-control" id="science_grade" name="science_grade" required>
+
+                    <label for="art_grade">Art:</label>
+                    <input type="text" class="form-control" id="art_grade" name="art_grade" required>
+
+                    <label for="language_grade">Language:</label>
+                    <input type="text" class="form-control" id="language_grade" name="language_grade" required>
+
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </section> 
+            
+            <section class="form-section-qgrade">
+                <form action="<?= site_url('addfirstquarter') ?>" method="POST">
+                    <label for="mathematics_grade">Math:</label>
+                    <input type="text" class="form-control" id="mathematics_grade" name="mathematics_grade" required>
+
+                    <label for="science_grade">Science:</label>
+                    <input type="text" class="form-control" id="science_grade" name="science_grade" required>
+
+                    <label for="art_grade">Art:</label>
+                    <input type="text" class="form-control" id="art_grade" name="art_grade" required>
+
+                    <label for="language_grade">Language:</label>
+                    <input type="text" class="form-control" id="language_grade" name="language_grade" required>
+
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </section> 
+
+            <section class="form-section-qgrade">
+                <form action="<?= site_url('addfirstquarter') ?>" method="POST">
+                    <label for="mathematics_grade">Math:</label>
+                    <input type="text" class="form-control" id="mathematics_grade" name="mathematics_grade" required>
+
+                    <label for="science_grade">Science:</label>
+                    <input type="text" class="form-control" id="science_grade" name="science_grade" required>
+
+                    <label for="art_grade">Art:</label>
+                    <input type="text" class="form-control" id="art_grade" name="art_grade" required>
+
+                    <label for="language_grade">Language:</label>
+                    <input type="text" class="form-control" id="language_grade" name="language_grade" required>
+
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </section> 
+            
+            <section class="form-section-qgrade">
+                <form action="<?= site_url('addfirstquarter') ?>" method="POST">
+                    <label for="mathematics_grade">Math:</label>
+                    <input type="text" class="form-control" id="mathematics_grade" name="mathematics_grade" required>
+
+                    <label for="science_grade">Science:</label>
+                    <input type="text" class="form-control" id="science_grade" name="science_grade" required>
+
+                    <label for="art_grade">Art:</label>
+                    <input type="text" class="form-control" id="art_grade" name="art_grade" required>
+
+                    <label for="language_grade">Language:</label>
+                    <input type="text" class="form-control" id="language_grade" name="language_grade" required>
+
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </section> 
+            
+        </section>
+    </div>
+
+
+
+</div>
+</div>
+</div>
 </body>
 
 </html>

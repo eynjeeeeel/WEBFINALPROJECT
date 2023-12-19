@@ -232,6 +232,60 @@ class User_model extends Model {
             $this->db->table('hinfo')->insert($data);
     }
 
+    public function addfirstquarter($data)
+    {
+
+        $data = array(
+                'mathematics_grade' => $data['mathematics_grade'],
+                'science_grade' => $data['science_grade'],
+                'art_grade' => $data['art_grade'],
+                'language_grade' => $data['language_grade'],
+            );
+
+            $this->db->table('firstquarter')->insert($data);
+    }
+
+
+    public function addsecondquarter($data)
+    {
+
+        $data = array(
+                'mathematics_grade' => $data['mathematics_grade'],
+                'science_grade' => $data['science_grade'],
+                'art_grade' => $data['art_grade'],
+                'language_grade' => $data['language_grade'],
+            );
+
+            $this->db->table('secondquarter')->insert($data);
+    }
+
+    public function addthirdquarter($data)
+    {
+
+        $data = array(
+                'mathematics_grade' => $data['mathematics_grade'],
+                'science_grade' => $data['science_grade'],
+                'art_grade' => $data['art_grade'],
+                'language_grade' => $data['language_grade'],
+            );
+
+            $this->db->table('thirdquarter')->insert($data);
+    }
+
+
+    public function addfourthquarter($data)
+    {
+
+        $data = array(
+                'mathematics_grade' => $data['mathematics_grade'],
+                'science_grade' => $data['science_grade'],
+                'art_grade' => $data['art_grade'],
+                'language_grade' => $data['language_grade'],
+            );
+
+            $this->db->table('fourthquarter')->insert($data);
+    }
+
     public function getemen($id)
     {
         $data = $this->db->table('econ')->where('id', $id)->get();

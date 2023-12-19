@@ -329,11 +329,77 @@ class UserController extends Controller {
     }
 
 
+    public function firstq(){
+        $this->call->view('studprof');
+    }
+    public function addfirstq()
+    {
+        {
+            $user_data = [
+                'mathematics_grade' => $this->io->post('mathematics_grade'),
+                'science_grade' => $this->io->post('science_grade'),
+                'art_grade' => $this->io->post('art_grade'),
+                'language_grade' => $this->io->post('language_grade'),
+            ];
+            $this->User_model->addfirstquarter($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
 
+    public function secondq(){
+        $this->call->view('studprof');
+    }
+    public function addsecondq()
+    {
+        {
+            $user_data = [
+                'mathematics_grade' => $this->io->post('mathematics_grade'),
+                'science_grade' => $this->io->post('science_grade'),
+                'art_grade' => $this->io->post('art_grade'),
+                'language_grade' => $this->io->post('language_grade'),
+            ];
+            $this->User_model->addsecondquarter($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
 
+    public function thirdq(){
+        $this->call->view('studprof');
+    }
+    public function addthirdq()
+    {
+        {
+            $user_data = [
+                'mathematics_grade' => $this->io->post('mathematics_grade'),
+                'science_grade' => $this->io->post('science_grade'),
+                'art_grade' => $this->io->post('art_grade'),
+                'language_grade' => $this->io->post('language_grade'),
+            ];
+            $this->User_model->addthirdquarter($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
 
-
-
+    public function fourthq(){
+        $this->call->view('studprof');
+    }
+    public function addfourthq()
+    {
+        {
+            $user_data = [
+                'mathematics_grade' => $this->io->post('mathematics_grade'),
+                'science_grade' => $this->io->post('science_grade'),
+                'art_grade' => $this->io->post('art_grade'),
+                'language_grade' => $this->io->post('language_grade'),
+            ];
+            $this->User_model->addfourthquarter($user_data);
+            $this->session->set_flashdata('success', 'Emergency contact add succesful. ');
+            redirect('admindb');
+        }
+    }
 
 
 
