@@ -74,6 +74,10 @@ $router->match('addteachersinfo', 'UserController::addteachersinfo', 'GET|POST')
 $router->get('facilityinfo', 'UserController::facilityinfo');
 $router->match('addfacilityinfo', 'UserController::addfacilityinfo', 'GET|POST');
 
+$router->get('firstq', 'UserController::firstq');
+$router->match('addfirstq', 'UserController::addfirstq', 'GET|POST');
+
+
 $router->get('adminregister', 'UserController::adminreg');
 $router->match('adminregAuth', 'UserController::adminregAuth', 'GET|POST');
 $router->get('adminlogin', 'UserController::adminlogin');

@@ -61,13 +61,12 @@
 
         .form-row {
             display: flex;
+            flex-wrap: wrap; 
             gap: 30px;
-            /* margin-bottom: 20px; */
-            /* justify-content: space-between; */
             margin-left: 32px;
-            /* margin-right: 40px; */
             margin-top: 30px;
         }
+
 
         .form-section {
             background-color: #fff;
@@ -94,18 +93,24 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            height: 475px;
-            width: 800px;
+            height: 530px;
+            width: 1400px;
+            margin-top: 20px;
+            margin-left: 30px;
             gap: 30px;
         }
 
         .form-section-qgrade {
             background-color: #fff;
+            border-color: black;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            height: 340px;
-            gap: 30px;
+            padding: 30px;
+            height: 400px;
+            width: 300px;
+            gap: 20px;
+            flex: 1;
+            margin-bottom: 20px;
         }
 
 
@@ -230,11 +235,13 @@
         </section>
     </div>
 
-    <div class="form-row">
-        <section class="form-section-grade">
-            <h2>Student's Quarterly Grade</h2>
+<section class="form-section-grade">
+    <h2 style="text-align:center">Student's Quarterly Grade</h2>
+        <div class="form-row">
+        
             <section class="form-section-qgrade">
-                <form action="<?= site_url('addfirstquarter') ?>" method="POST">
+                <h4 style="text-align:center">First Quarter Grading</h4>
+                <form class="form1" action="<?= site_url('addfirstq') ?>" method="POST">
                     <label for="mathematics_grade">Math:</label>
                     <input type="text" class="form-control" id="mathematics_grade" name="mathematics_grade" required>
 
@@ -252,7 +259,8 @@
             </section> 
             
             <section class="form-section-qgrade">
-                <form action="<?= site_url('addfirstquarter') ?>" method="POST">
+                <h4 style="text-align:center">Second Quarter Grading</h4>
+                <form class="form1" action="<?= site_url('addsecondq') ?>" method="POST">
                     <label for="mathematics_grade">Math:</label>
                     <input type="text" class="form-control" id="mathematics_grade" name="mathematics_grade" required>
 
@@ -270,7 +278,8 @@
             </section> 
 
             <section class="form-section-qgrade">
-                <form action="<?= site_url('addfirstquarter') ?>" method="POST">
+                <h4 style="text-align:center">Third Quarter Grading</h4>
+                <form class="form1" action="<?= site_url('addthirdq') ?>" method="POST">
                     <label for="mathematics_grade">Math:</label>
                     <input type="text" class="form-control" id="mathematics_grade" name="mathematics_grade" required>
 
@@ -288,7 +297,8 @@
             </section> 
             
             <section class="form-section-qgrade">
-                <form action="<?= site_url('addfirstquarter') ?>" method="POST">
+                <h4 style="text-align:center">Fourth Quarter Grading</h4>
+                <form class="form1" action="<?= site_url('addfourthq') ?>" method="POST">
                     <label for="mathematics_grade">Math:</label>
                     <input type="text" class="form-control" id="mathematics_grade" name="mathematics_grade" required>
 
