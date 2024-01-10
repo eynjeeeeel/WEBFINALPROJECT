@@ -7,6 +7,26 @@
 
 <body>
     <div class="container-xxl bg-white p-0">
+    <?php if (!empty($_SESSION['errors'])): ?>
+            <div class="alert alert-danger" role="alert">
+                <strong class="font-weight-bold">Error!</strong>
+                <span class="d-block">
+                    <?php
+                    $errorMessages = is_array($_SESSION['errors']) ? $_SESSION['errors'] : [$_SESSION['errors']];
+                    echo implode('<br>', $errorMessages);
+                    ?>
+                </span>
+            </div>
+        <?php endif; ?>
+
+        <?php if (!empty($_SESSION['success'])): ?>
+            <div class="alert alert-success" role="alert">
+                <strong class="font-weight-bold">Success!</strong>
+                <span class="d-block">
+                    <?php echo $_SESSION['success']; ?>
+                </span>
+            </div>
+        <?php endif; ?>
         <div class="container-fluid service py-6">
             <div class="container">
                 <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
@@ -21,74 +41,27 @@
                                 <div class="service-content d-flex align-items-center justify-content-center">
                                     <div class="container">
                                         <h2 class="text-emerald-600">ACMCL Admin Registration</h2>
-                                        <form id="registrationForm" action="<?= site_url('adminregAuth') ?>" method="POST"
-                                            onsubmit="return validateForm()">
+                                        <form id="registrationForm" action="<?= site_url('adminregAuth') ?>" method="POST" onsubmit="return validateForm()">
                                             <div class="mb-2">
                                                 <label for="inputUsername" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="inputUsername" placeholder="Enter your username" required
-                                                    name="username">
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="inputPassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password" required
-                                                    name="password">
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="inputConfirmPassword" class="form-label">Confirm Password</label>
-                                                <input type="password" class="form-control" id="inputConfirmPassword"
-                                                    aria-describedby="passwordHelpInline" required name="confirmpassword">
-                                            </div>
-
-                                            <div class="mb-2">
-                                                <label for="inputTechId" class="form-label">Tech ID</label>
-                                                <input type="text" class="form-control" id="inputTechId" placeholder="Enter your Tech ID" required
-                                                    name="tech_id">
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="inputFname" class="form-label">First Name</label>
-                                                <input type="text" class="form-control" id="inputFname" placeholder="Enter your first name" required
-                                                    name="fname">
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="inputMname" class="form-label">Middle Name</label>
-                                                <input type="text" class="form-control" id="inputMname" placeholder="Enter your middle name"
-                                                    name="mname">
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="inputLname" class="form-label">Last Name</label>
-                                                <input type="text" class="form-control" id="inputLname" placeholder="Enter your last name" required
-                                                    name="lname">
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="inputGender" class="form-label">Gender</label>
-                                                <select class="form-select" id="inputGender" required name="gender">
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="inputDob" class="form-label">Date of Birth</label>
-                                                <input type="date" class="form-control" id="inputDob" required name="dob">
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="inputCnum" class="form-label">Contact Number</label>
-                                                <input type="text" class="form-control" id="inputCnum" placeholder="Enter your contact number"
-                                                    required name="cnum">
+                                                <input type="text" class="form-control" id="inputUsername" placeholder="Enter your username" required name="username">
                                             </div>
                                             <div class="mb-2">
                                                 <label for="inputEmail" class="form-label">Email Address</label>
-                                                <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email address" required
-                                                    name="email">
+                                                <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email address" required name="email">
                                             </div>
                                             <div class="mb-2">
-                                                <label for="inputHomeadd" class="form-label">Home Address</label>
-                                                <input type="text" class="form-control" id="inputHomeadd" placeholder="Enter your home address"
-                                                    required name="homeadd">
+                                                <label for="inputPassword" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password" required name="password">
                                             </div>
-
-                                            <!-- Add other form fields as needed -->
+                                            <div class="mb-2">
+                                                <label for="inputConfirmPassword" class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control" id="inputConfirmPassword" required name="confirmpassword">
+                                            </div>
+                                          
                                             <button type="submit" class="btn btn-primary">Register</button>
                                         </form>
+
                                         <div id="successNotification" class="mt-3 text-center text-lg text-gray-700" style="color: white; font-size: 17px; display: none;">
                                             Registration Successful. You have filled in all required fields.
                                         </div>

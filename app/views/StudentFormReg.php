@@ -15,7 +15,9 @@
 
 <body class="bg-light">
     <div class="container-xxl">
+
         <div class="container-fluid service py-6">
+
             <div class="container">
                 <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                     <a href="<?= base_url() ?>/" class="navbar-brand">
@@ -28,9 +30,9 @@
                             <div class="card-body p-4">
                                 <div class="service-content d-flex align-items-center justify-content-center">
                                     <div class="container">
-                                        <h2 class="text-emerald-600">Student Registration</h2>
+                                        <h2 class="text-emerald-600">Add Child</h2>
                                         
-                                        <form action="<?= site_url('regAuth') ?>" method="POST">
+                                    <form action="<?= site_url('addmyChild') ?>" method="POST">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <!-- First Row -->
@@ -39,38 +41,22 @@
                                                     <input type="text" class="form-control" id="idnumber" name="idnumber" required>
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="fullname" class="form-label">Full Name</label>
-                                                    <input type="text" class="form-control" id="fullname" name="fullname" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="gender" class="form-label">Gender</label>
-                                                    <input type="text" class="form-control" id="gender" name="gender">
-                                                </div>
                                             </div>
 
                                             <div class="col-md-6">
-                                                <!-- Second Row -->
-                                                <div class="mb-3">
-                                                    <label for="age" class="form-label">Age</label>
-                                                    <input type="text" class="form-control" id="age" name="age">
-                                                </div>
 
                                                 <div class="mb-3">
                                                     <label for="birthday" class="form-label">Birthday</label>
-                                                    <input type="text" class="form-control" id="birthday" name="birthday">
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="address" class="form-label">Address</label>
-                                                    <input type="text" class="form-control" id="address" name="address">
+                                                    <input type="date" class="form-control" id="birthday" name="birthday">
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary mt-3">Add My Student</button>
+                                        <button type="submit" class="btn btn-primary mt-3">Add My Child</button>
+                                        <a href="<?=site_url('studprof')?>" class="btn btn-primary mt-3">Back</a>
                                     </form>
-
+                                    <br>
+                                    <h6>For security, provide also the bday of your child</h6>
                                     </div>
                                 </div>
                             </div>

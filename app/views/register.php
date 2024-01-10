@@ -11,6 +11,28 @@
 <body>
 <div class="container-xxl bg-white p-0">
     <div class="container-fluid service py-6">
+    <div class="container">
+        <?php if (!empty($_SESSION['errors'])): ?>
+            <div class="alert alert-danger" role="alert">
+                <strong class="font-weight-bold">Error!</strong>
+                <span class="d-block">
+                    <?php
+                    $errorMessages = is_array($_SESSION['errors']) ? $_SESSION['errors'] : [$_SESSION['errors']];
+                    echo implode('<br>', $errorMessages);
+                    ?>
+                </span>
+            </div>
+        <?php endif; ?>
+
+        <?php if (!empty($_SESSION['success'])): ?>
+            <div class="alert alert-success" role="alert">
+                <strong class="font-weight-bold">Success!</strong>
+                <span class="d-block">
+                    <?php echo $_SESSION['success']; ?>
+                </span>
+            </div>
+        <?php endif; ?>
+    </div>
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <a href="<?= base_url() ?>/" class="navbar-brand">
@@ -26,28 +48,32 @@
                                 <h2 class="text-emerald-600">ACMCL Registration</h2>
                                 <form action="<?= site_url('registerAuth') ?>" method="POST">
                                     <div class="mb-2">
-                                        <label for="inputFirstname" class="form-label">First Name</label>
-                                        <input type="text" class="form-control" id="inputFirstname" placeholder="Enter your first name" required
+                                        <label for="inputFirstname" class="form-label">First Name</label> 
+                                        <input type="text" class="form-control" id="inputFirstname" placeholder="Enter your first name" required autocomplete
                                             name="firstname">
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputLastname" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="inputLastname" placeholder="Enter your last name" required
+                                        <input type="text" class="form-control" id="inputLastname" placeholder="Enter your last name" required autocomplete
                                             name="lastname">
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputEmail" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required autocomplete
                                             name="email">
-                                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="inputContact" class="form-label">Contact Information</label>
+                                        <input type="text" class="form-control" id="inputContact" placeholder="Enter your contact number" required name="contact">
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputPassword" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelpInline"
                                             required name="password">
-                                        <!-- <div id="passwordHelpInline" class="form-text">
+                                        <div id="passwordHelpInline" class="form-text">
                                             Must be 8-20 characters long. 1 uppercase, 1 lowercase, and add special characters.
-                                        </div> -->
+                                        </div>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputPassword" class="form-label">Confirm Password</label>

@@ -71,9 +71,13 @@
                 <h1 class="m-0" style="margin-left: 60px">ACMCL</h1>
             </a>
             <div class=" justify-content-end align-items-center w-100" style="margin-left: 600px">
-                <a href="login" class="btn btn-primary btn-login rounded-pill px-3">Login / Sign Up<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="login" class="btn btn-primary btn-login rounded-pill px-3">Parent<i class="fa fa-arrow-right ms-3"></i></a>
+            
+          
+                <a href="adminlogin" class="btn btn-primary btn-login rounded-pill px-3">Admin<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </div>
+        
 
         <!-- Kindergarten Picture -->
         <div class="container-fluid">

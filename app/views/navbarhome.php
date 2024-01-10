@@ -15,10 +15,10 @@
             <a href="studprof" class="nav-item nav-link text-white">My Child's Profile</a>
         </div>
 
-        <form class="d-flex" role="search">
+        <!-- <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" style="color: white; background-color: blue" type="submit">Search</button>
-        </form>
+        </form> -->
 
         <div class="navbar-nav mx-auto">
             <div class="nav-item dropdown">
@@ -26,10 +26,10 @@
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <!-- Add other profile-related menu items here -->
                     <a href="<?= site_url('StudentFormReg') ?>" class="dropdown-item text-green">Register Your Child</a>
-                    <a href="adminlogin" class="dropdown-item text-green">Admin Settings</a>
+                    <!-- <a href="adminlogin" class="dropdown-item text-green">Admin Settings</a> -->
 
                     <div class="dropdown-divider"></div>
-                    <a href="adminlogin" class="dropdown-item text-green">Logout</a>
+                    <a href="<?= site_url('logout') ?>" class="dropdown-item text-green">Logout</a>
                 </div>
             </div>
         </div>

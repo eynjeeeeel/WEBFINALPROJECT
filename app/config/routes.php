@@ -44,46 +44,64 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 
-$router->get('sitevisit', 'UserController::sitevisit', 'GET|POST');
+$router->get('', 'UserController::sitevisit', 'GET|POST');
 $router->get('home', 'UserController::home', 'GET|POST');
 $router->get('about', 'UserController::about');
-$router->get('studprof', 'UserController::studprof');
-$router->get('admindb', 'UserController::admindb');
+$router->get('studprof', 'UserController::studprof',);
+$router->match('studprofone', 'UserController::studprofone', 'GET|POST');
 $router->get('classes', 'UserController::classes');
 $router->get('facilities', 'UserController::facilities');
+$router->match('addmyChild', 'UserController::addmyChild', 'GET|POST');
+
+$router->get('register', 'Auth_controller::register');
+$router->match('/registerAuth', 'Auth_controller::registerAuth', 'GET|POST');
+$router->get('login', 'Auth_controller::login');
+$router->match('loginAuth', 'Auth_controller::loginAuth', 'GET|POST');
+$router->get('adminregister', 'Auth_controller::adminregister');
+$router->match('adminregAuth', 'Auth_controller::adminregAuth', 'GET|POST');
+$router->get('adminlogin', 'Auth_controller::adminlogin');
+$router->match('adminloginAuth', 'Auth_controller::adminloginAuth', 'GET|POST');
+$router->get('logout', 'Auth_controller::logout');
+
+
+$router->get('admin_db', 'Admin_controller::admindb');
+$router->match('addFacility', 'Admin_controller::addFacility', 'GET|POST');
+$router->match('addSubject', 'Admin_controller::addSubject', 'GET|POST');
+$router->match('addTeacher', 'Admin_controller::addTeacher', 'GET|POST');
+$router->match('addChild', 'Admin_controller::addChild', 'GET|POST');
+$router->match('addTeacherAssignment', 'Admin_controller::addTeacherAssignment', 'GET|POST');
+$router->get('getStudentData/(:num)', 'Admin_controller::getStudentData');
+$router->match('addAnnouncement', 'Admin_controller::addAnnouncement', 'GET|POST');
+
 
 $router->get('childregister', 'UserController::regchild');
 $router->get('StudentFormReg', 'UserController::StudentFormReg');
 $router->match('regAuth', 'UserController::regAuth', 'GET|POST');
 $router->get('studentprofile', 'UserController::getStudent');
 
-$router->get('register', 'UserController::register');
-$router->match('registerAuth', 'UserController::registerAuth', 'GET|POST');
-$router->get('login', 'UserController::login');
-$router->match('loginAuth', 'UserController::loginAuth', 'GET|POST');
-$router->get('logout', 'UserController::logout');
-
-$router->get('emergencycontact', 'UserController::emergencycontact');
-$router->match('addemergency', 'UserController::addemergency', 'GET|POST');
-$router->get('healthinfo', 'UserController::healthinfo');
-$router->match('addhealthinfo', 'UserController::addhealthinfo', 'GET|POST');
-$router->get('behavioralinfo', 'UserController::behavioralinfo');
-$router->match('addbehavioralinfo', 'UserController::addbehavioralinfo', 'GET|POST');
-$router->get('teachersinfo', 'UserController::teachersinfo');
-$router->match('addteachersinfo', 'UserController::addteachersinfo', 'GET|POST');
-$router->get('facilityinfo', 'UserController::facilityinfo');
-$router->match('addfacilityinfo', 'UserController::addfacilityinfo', 'GET|POST');
-
-$router->get('firstq', 'UserController::firstq');
-$router->match('addfirstq', 'UserController::addfirstq', 'GET|POST');
 
 
-$router->get('adminregister', 'UserController::adminreg');
-$router->match('adminregAuth', 'UserController::adminregAuth', 'GET|POST');
-$router->get('adminlogin', 'UserController::adminlogin');
-$router->match('adminloginAuth', 'UserController::adminloginAuth', 'GET|POST');
+
+
+
+// $router->get('emergencycontact', 'UserController::emergencycontact');
+// $router->match('addemergency', 'UserController::addemergency', 'GET|POST');
+// $router->get('healthinfo', 'UserController::healthinfo');
+// $router->match('addhealthinfo', 'UserController::addhealthinfo', 'GET|POST');
+// $router->get('behavioralinfo', 'UserController::behavioralinfo');
+// $router->match('addbehavioralinfo', 'UserController::addbehavioralinfo', 'GET|POST');
+// $router->get('teachersinfo', 'UserController::teachersinfo');
+// $router->match('addteachersinfo', 'UserController::addteachersinfo', 'GET|POST');
+// $router->get('facilityinfo', 'UserController::facilityinfo');
+
+
+// $router->get('firstq', 'UserController::firstq');
+// $router->match('addfirstq', 'UserController::addfirstq', 'GET|POST');
+
+
+
 $router->get('adminlogout', 'UserController::adminlogout');
 
-$router->get('grades', 'UserController::grades');
+// $router->get('grades', 'UserController::grades');
 
-$router->match('upload/do_upload', 'UploadController::do_upload', 'POST');
+// $router->match('upload/do_upload', 'UploadController::do_upload', 'POST');

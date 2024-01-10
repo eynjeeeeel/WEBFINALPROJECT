@@ -82,112 +82,134 @@
 
 </head>
 
-<body>
-    <div class="container-xxl bg-white p-0">
-
-
+<div class="container-xxl bg-white p-0">
         <!-- User Profile Start -->
         <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-4">
+        <?php if (!empty($_SESSION['errors'])): ?>
+            <div class="alert alert-danger" role="alert">
+                <strong class="font-weight-bold">Error!</strong>
+                <span class="d-block">
+                    <?php
+                    $errorMessages = is_array($_SESSION['errors']) ? $_SESSION['errors'] : [$_SESSION['errors']];
+                    echo implode('<br>', $errorMessages);
+                    ?>
+                </span>
+            </div>
+        <?php endif; ?>
 
-                    <!-- Student information on the left -->
-                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="profile-item">
-                            <div class="bg-light">
-                                <img class="img-fluid rounded-circle rounded-circle-img" src="public/img/studprof.jpg" alt="Profile Image">
-                            </div>
-                            <div class="bg-light rounded p-4">
-                                <div class="d-block text-center h3 mt-3 mb-4 profile-title">Charlomie Salvie</div>
-                                <div class="d-flex align-items-center justify-content-between mb-4 profile-info">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-calendar-event me-2"></i>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1">Age: 5</h6>
-                                            <small style="color: #dc3545;">Birthday: March 10, 2018</small>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-person me-2"></i>
-                                        <div class="ms-2">
-                                            <h6 class="mb-1">Gender: Male</h6>
-                                        </div>
-                                    </div>
+        <?php if (!empty($_SESSION['success'])): ?>
+            <div class="alert alert-success" role="alert">
+                <strong class="font-weight-bold">Success!</strong>
+                <span class="d-block">
+                    <?php echo $_SESSION['success']; ?>
+                </span>
+            </div>
+        <?php endif; ?>
+            <div class="container">
+                <form action="<?= site_url('studprofone') ?>" method="POST">
+                    <div class="row g-4">
+                        <!-- Select Child Dropdown -->
+                        <div class="col-12 mb-4">
+                            <select id="childSelect" class="form-select" name="child_id" onchange="this.form.submit()">
+                                <?php foreach($children as $child): ?>
+                                    <option value="<?= $child['ChildID']; ?>" <?= isset($selectedChild) && $selectedChild['ChildID'] == $child['ChildID'] ? 'selected' : ''; ?>>
+                                        <?= $child['Name']; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        
+                        <!-- Dynamic Student Information -->
+                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="profile-item">
+                                <div class="bg-light">
+                                    <img class="img-fluid rounded-circle rounded-circle-img" src="public/uploads/children/<?= $selectedChild['PhotoPath']; ?>" alt="Profile Image">
                                 </div>
-                                <div class="border-top">
-                                    <h6 class="mb-1">Address: 123 ABC Street, Cityville</h6>
+                                <div class="bg-light rounded p-4">
+                                    <div class="d-block text-center h3 mt-3 mb-4 profile-title"><?= $selectedChild['Name']; ?></div>
+                                    <div class="d-flex align-items-center justify-content-between mb-4 profile-info">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            <div class="ms-2">
+                                                <h6 class="mb-1">Age: <?= ($selectedChild['Age']); ?></h6>
+                                                <small style="color: #dc3545;">Birthday: <?= date("F d, Y", strtotime($selectedChild['Birthday'])); ?></small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-person me-2"></i>
+                                            <div class="ms-2">
+                                                <h6 class="mb-1">Gender: <?= $selectedChild['Gender']; ?></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-top">
+                                        <h6 class="mb-1">Address: <?= $selectedChild['Address']; ?></h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Additional Information on the Right -->
+                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="row g-4">
+                                <!-- Emergency Contact -->
+                                <div class="col-md-6">
+                                    <div class="profile-item">
+                                        <div class="bg-light rounded p-4">
+                                            <div class="d-block text-center h3 mt-3 mb-4 profile-title">Emergency Contact</div>
+                                            <div class="border-top">
+                                                <h6 class="mb-1">Name: <?= $emergencyContact['Name']; ?></h6>
+                                                <small>Contact: <?= $emergencyContact['ContactNumber']; ?></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Health Information -->
+                                <div class="col-md-6">
+                                    <div class="profile-item">
+                                        <div class="bg-light rounded p-4">
+                                            <div class="d-block text-center h3 mt-3 mb-4 profile-title">Health Information</div>
+                                            <div class="border-top">
+                                                <h6 class="mb-1">Blood Type: <?= $healthInfo['BloodType']; ?></h6>
+                                                <small>Allergies: <?= $healthInfo['Allergies']; ?></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Behavioral and Social Development -->
+                                <div class="col-md-6">
+                                    <div class="profile-item">
+                                        <div class="bg-light rounded p-4">
+                                            <div class="d-block text-center h3 mt-3 mb-4 profile-title">Behavioral & Social Development</div>
+                                            <div class="border-top">
+                                                <h6 class="mb-1">Behavior: <?= $behavioralDevelopment['Behavior']; ?></h6>
+                                                <small>Social Skills: <?= $behavioralDevelopment['SocialSkills']; ?></small> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Recent Photograph -->
+                            <div class="col-md-6">
+                                <div class="profile-item">
+                                    <div class="bg-light rounded p-4">
+                                        <div class="d-block text-center h3 mt-3 mb-4 profile-title">Recent Photograph</div>
+                                        <div class="border-top">
+                                        <img class="img-fluid rounded-circle rounded-circle-img" src="public/uploads/children/<?= $selectedChild['PhotoPath']; ?>" alt="Profile Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-
-                   <!-- Additional information on the right in a 2x2 grid -->
-<div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-
-<div class="row g-4">
-
-    <!-- Emergency Contact -->
-    <div class="col-md-6">
-        <div class="profile-item">
-            <div class="bg-light rounded p-4">
-                <div class="d-block text-center h3 mt-3 mb-4 profile-title">Emergency Contact</div>
-                <div class="border-top">
-                    <h6 class="mb-1">Name: Leynard</h6>
-                    <small>Contact: 09999999999</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Health Information -->
-    <div class="col-md-6">
-        <div class="profile-item">
-            <div class="bg-light rounded p-4">
-                <div class="d-block text-center h3 mt-3 mb-4 profile-title">Health Information</div>
-                <div class="border-top">
-                    <h6 class="mb-1">Blood Type: O+</h6>
-                    <small>Allergies: Sinus</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Behavioral and Social Development -->
-    <div class="col-md-6">
-        <div class="profile-item">
-            <div class="bg-light rounded p-4">
-                <div class="d-block text-center h3 mt-3 mb-4 profile-title">Behavioral & Social Development</div>
-                <div class="border-top">
-                    <h6 class="mb-1">Behavior: Cognitive</h6>
-                    <small>Social Skills: Developing</small> 
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Recent Photograph -->
-    <div class="col-md-6">
-        <div class="profile-item">
-            <div class="bg-light rounded p-4">
-                <div class="d-block text-center h3 mt-3 mb-4 profile-title">Recent Photograph</div>
-                <div class="border-top">
-                    <!-- Add an image or link to the recent photograph here -->
-                    <img class="img-fluid" src="public/img/studprof2.jpg" alt="Recent Photograph">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-</div>
-
-
-                </div>
+                </form>
             </div>
         </div>
         <!-- User Profile End -->
     </div>
+    <!-- (Insert any additional scripts or closing tags here) -->
 </body>
 
 </html>

@@ -4,20 +4,110 @@ class UserController extends Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->call->model('User_model');
         $this->acmcl = lava_instance();
+        $this->call->model('User_model');
+        $this->call->model('Children_model');
     }
     public function sitevisit(){
         $this->call->view('sitevisit');
     }
 
-    public function studprof(){
-        $this->call->view('studprof');
+  // UserController.php
+
+public function studprof() {
+    $parentId = $this->session->userdata('parent_id');
+
+    // Load necessary models
+    $this->call->model('Children_model');
+    $this->call->model('Emergencycontacts_model');
+    $this->call->model('Healthinformation_model');
+    $this->call->model('Behavioralsocialdevelopment_model');
+    $this->call->model('Grades_model');
+    $this->call->model('Announcement_model');
+    $this->call->model('Event_model');
+
+    // Fetch grades for the child
+
+
+    // Fetch children associated with the parent
+    $data['children'] = $this->Children_model->getChildDetails($parentId);
+
+    // Default to the first child if children exist
+    if (!empty($data['children'])) {
+        $selectedChildId = $data['children'][0]['ChildID'];
+        $data['selectedChild'] = $this->Children_model->getChildById($selectedChildId);
+
+        // Fetch emergency contact information for the selected child
+        $data['emergencyContact'] = $this->Emergencycontacts_model->getEmergencyContactsByChildId($selectedChildId);
+
+        // Fetch health information for the selected child
+        $data['healthInfo'] = $this->Healthinformation_model->getHealthInfoByChildId($selectedChildId);
+
+        // Fetch behavioral and social development information for the selected child
+        $data['behavioralDevelopment'] = $this->Behavioralsocialdevelopment_model->getDevelopmentInfoByChildId($selectedChildId);
+
+        $data['grades'] = $this->Grades_model->getGradesByChildId($selectedChildId);
+        $data['announcements'] = $this->Announcement_model->getAnnouncements();
+        $data['events'] = $this->Event_model->getEvents();
     }
 
-    public function admindb(){
-        $this->call->view('admindb');
+    // Load the view with the data
+    $this->call->view('studprof', $data);
+}
+
+    
+    
+    
+ // UserController.php
+
+// UserController.php
+
+public function studprofone() {
+    $parentId = $this->session->userdata('parent_id');
+
+    // Initialize variables
+    $data = [
+        'children' => [],
+        'selectedChild' => [],
+        'emergencyContact' => [],
+        'healthInfo' => [],
+        'behavioralDevelopment' => [],
+        'grades' => [],  // Initialize grades to an empty array
+        'announcements' => [],
+        'events' => []
+    ];
+
+    // Load necessary models
+    $this->call->model('Children_model');
+    $this->call->model('Emergencycontacts_model');
+    $this->call->model('Healthinformation_model');
+    $this->call->model('Behavioralsocialdevelopment_model');
+    $this->call->model('Grades_model');
+    $this->call->model('Announcement_model');
+    $this->call->model('Event_model');
+
+    $data['children'] = $this->Children_model->getChildDetails($parentId);
+
+    $selectedChildId = $this->io->post('child_id') ?: ($data['children'][0]['ChildID'] ?? null);
+
+    if ($selectedChildId) {
+        $data['selectedChild'] = $this->Children_model->getChildById($selectedChildId);
+        $data['emergencyContact'] = $this->Emergencycontacts_model->getEmergencyContactsByChildId($selectedChildId);
+        $data['healthInfo'] = $this->Healthinformation_model->getHealthInfoByChildId($selectedChildId);
+        $data['behavioralDevelopment'] = $this->Behavioralsocialdevelopment_model->getDevelopmentInfoByChildId($selectedChildId);
+        $data['grades'] = $this->Grades_model->getGradesByChildId($selectedChildId);
     }
+
+    $data['announcements'] = $this->Announcement_model->getAnnouncements();
+    $data['events'] = $this->Event_model->getEvents();
+
+    $this->call->view('studprof', $data);
+}
+
+
+    
+    
+
 
     public function adminlogout()
     {
@@ -30,16 +120,30 @@ class UserController extends Controller {
     public function about(){
         $this->call->view('about');
     }
-    public function classes(){
-        $this->call->view('classes');
+    public function classes() {
+        $this->call->model('Subjects_model');
+        $this->call->model('Teachers_model');
+    
+        // Assuming you have a method to get all subjects with their respective teachers
+        $data['classes'] = $this->Subjects_model->getClasses();
+
+    
+        $this->call->view('classes', $data);
     }
+    
 
     public function StudentFormReg(){
         $this->call->view('StudentFormReg');
     }
 
     public function facilities(){
-        $this->call->view('facilitiesPG');
+        $this->call->model('Schoolfacilities_model');
+
+        // Fetch facility details
+        $data['facilities'] = $this->Schoolfacilities_model->getAllFacilities();
+    
+        // Load the view with facility data
+        $this->call->view('facilitiesPG', $data);
     }
 
     public function login()
@@ -101,66 +205,6 @@ class UserController extends Controller {
         $this->call->view('studprof', $data);
     }
 
-    public function adminreg(){
-        $this->call->view('adminregister');
-    }
-    public function adminregAuth()
-    {
-        $this->form_validation
-            ->name('username')
-                ->required()
-            ->name('tech_id')
-                ->required()
-            ->name('password')
-                ->required()
-                ->min_length(8)
-                ->custom_pattern('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$', 'Make sure the password meets the requirements.')
-            ->name('confirmpassword')
-                ->matches('password', "Password don't match")
-                ->required()
-                ->min_length(8)    
-            ->name('fname')
-                ->required()
-            ->name('mname')
-                ->required()
-            ->name('lname')
-                ->required()
-            ->name('gender')
-                ->required()
-            ->name('dob')
-                ->required()
-            ->name('cnum')
-                ->required()
-            ->name('email')
-                ->required()
-                ->valid_email()
-            ->name('homeadd')
-                ->required();
-    
-        if ($this->form_validation->run() == false) {
-            $_SESSION['errors'] = $this->form_validation->get_errors();
-            $this->session->mark_as_flash('errors', 'Registration Failed. Please fill in all required fields.');
-            redirect('adminregister');
-        } else {
-            $data = [
-                'username' => $this->io->post('username'),
-                'fname' => $this->io->post('fname'),
-                'lname' => $this->io->post('lname'),
-                'mname' => $this->io->post('mname'),
-                'email' => $this->io->post('email'),
-                'password' => password_hash($this->io->post('password'), PASSWORD_BCRYPT),
-                'tech_id' => $this->io->post('tech_id'),
-                'gender' => $this->io->post('gender'),
-                'dob' => $this->io->post('dob'),
-                'cnum' => $this->io->post('cnum'),
-                'homeadd' => $this->io->post('homeadd'),
-            ];
-    
-            $this->User_model->registerAdmin($data);
-            $this->session->set_flashdata('success', 'Registration successful. You have met all the required fields.');
-            redirect('adminlogin');
-        }
-    }
     
     
     public function set_log_in($id)
@@ -403,43 +447,7 @@ class UserController extends Controller {
 
 
 
-    public function register(){
-        $this->call->view('register');
-    }
-    public function registerAuth()
-    {
-        $this->form_validation
-            ->name('firstname')
-                ->required()
-            ->name('lastname')
-                ->required()
-            ->name('password')
-                ->required()
-                ->min_length(8)
-                ->custom_pattern('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$', 'Make sure password meets the requirements.')
-            ->name('confirm-password')
-                ->matches('password', "Password doesn't match")
-                ->required()
-                ->min_length(8)
-            ->name('email')
-                ->required()
-                ->valid_email();
-        if ($this->form_validation->run() == false) {
-            $_SESSION['errors'] = $this->form_validation->get_errors();
-            $this->session->mark_as_flash('errors', 'Registration Failed. Please try again!');
-            redirect('register');
-        } else {
-            $data = [
-                'firstname' => $this->io->post('firstname'),
-                'lastname' => $this->io->post('lastname'),
-                'email' => $this->io->post('email'),
-                'password' => password_hash($this->io->post('password'), PASSWORD_BCRYPT),
-            ];
-            $this->User_model->register($data);
-            $this->session->set_flashdata('success', 'Registration succesful. ');
-            redirect('login');
-        }
-    }
+  
     public function set_logged_in($id)
     {
         $user_data = $this->User_model->getUserDataById($id);
@@ -468,10 +476,31 @@ class UserController extends Controller {
         }
         $this->call->view('home');
     }
-    public function logout()
-    {
-        $this->acmcl->session->sess_destroy();
-        redirect('sitevisit');
+    public function addmyChild() {
+       (int) $childIdNumber = $this->io->post('idnumber');
+        $childBirthday = $this->io->post('birthday');
+        $loggedInParentId =  $this->session->userdata('parent_id');
+
+        $this->call->model('Children_model');
+        $childExists = $this->Children_model->checkChild($childIdNumber, $childBirthday);
+       
+        if ($childExists) {
+            $updateStatus = $this->Children_model->updateParentId($childIdNumber, $loggedInParentId);
+            var_dump(   $updateStatus  );
+            if ($updateStatus === 1) {
+                // Success message
+                $this->session->set_flashdata('success', 'Child successfully linked to your account.');
+            } else {
+                // Error message
+                $this->session->set_flashdata('error', 'Unable to update child information.');
+            }
+        } else {
+            // Error message
+            $this->session->set_flashdata('error', 'No matching child found.');
+        }
+    
+        redirect('studprof'); // Redirect to the appropriate page
     }
+
 }
 ?>

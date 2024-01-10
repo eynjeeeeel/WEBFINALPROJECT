@@ -129,170 +129,79 @@
                             <canvas id="academicProgressChart" style="max-height: 300px; max-width:500px"></canvas>
                         </div>
 
+<!-- Grades Section -->
+<div class="dashboard-item col-md-6">
+    <h3>Grades</h3>
+    <p>Your child's grades are not final, due to the extra points.</p>
+    <table id="gradesTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>First Quarter</th>
+            <th>Second Quarter</th>
+            <th>Third Quarter</th>
+            <th>Fourth Quarter</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        // Process grades to organize them by subject
+        $processedGrades = [];
+        foreach ($grades as $grade) {
+            $processedGrades[$grade['SubjectID']]['Name'] = $grade['Name'];
+            $processedGrades[$grade['SubjectID']][$grade['Quarter']] = $grade['Grade'];
+        }
 
-                        <!-- Grades Section -->
-                        <div class="dashboard-item col-md-6">
-                            <h3>Grades</h3>
-                            <!-- teacher's comment -->
-                            <p>Your child's grades are not final, due to the extra points.</p>
-                            
-                            <table id="gradesTable" class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>First Quarter</th>
-                                        <th>Second Quarter</th>
-                                        <th>Third Quarter</th>
-                                        <th>Fourth Quarter</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Mathematics -->
-                                    <tr>
-                                        <td>Mathematics</td>
-                                        <td>90</td>
-                                        <td>89</td>
-                                        <td>86</td>
-                                        <td>93</td>
-                                    </tr>
-                                    <!-- Science -->
-                                    <tr>
-                                        <td>Science</td>
-                                        <td>85</td>
-                                        <td>88</td>
-                                        <td>82</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <!-- Language -->
-                                    <tr>
-                                        <td>Language</td>
-                                        <td>88</td>
-                                        <td>85</td>
-                                        <td>90</td>
-                                        <td>87</td>
-                                    </tr>
-                                    <!-- Art -->
-                                    <tr>
-                                        <td>Art</td>
-                                        <td>82</td>
-                                        <td>78</td>
-                                        <td>85</td>
-                                        <td>80</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+        // Display grades
+        foreach ($processedGrades as $subjectGrades): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($subjectGrades['Name']); ?></td>
+                <td><?php echo htmlspecialchars($subjectGrades['First'] ?? '-'); ?></td>
+                <td><?php echo htmlspecialchars($subjectGrades['Second'] ?? '-'); ?></td>
+                <td><?php echo htmlspecialchars($subjectGrades['Third'] ?? '-'); ?></td>
+                <td><?php echo htmlspecialchars($subjectGrades['Fourth'] ?? '-'); ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
-                        <!-- Schedules Section -->
-                        <div class="dashboard-item col-md-6">
-                            <h3>Kindergarten Class Schedule</h3>
-                            <p>Here is your child's class schedule, every morning, weekly.</p>
+</div>
 
-                            <table class="table table-bordered">
-                                <thead class="text-center">
-                                    <tr>
-                                        <th>Time</th>
-                                        <th>Monday</th>
-                                        <th>Tuesday</th>
-                                        <th>Wednesday</th>
-                                        <th>Thursday</th>
-                                        <th>Friday</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>8:00 AM - 9:00 AM</td>
-                                        <td>Math</td>
-                                        <td>Science</td>
-                                        <td>Language</td>
-                                        <td>Art</td>
-                                        <td>Free Time</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9:00 AM - 10:00 AM</td>
-                                        <td>Art</td>
-                                        <td>Language</td>
-                                        <td>Math</td>
-                                        <td>Science</td>
-                                        <td>Outdoor Activities</td>
-                                    </tr>
-                                    <!-- Add more rows for different time slots -->
-                                </tbody>
-                            </table>
-                        </div>
+                      
 
 
-                        <!-- Announcements and Events Section -->
-                        <div class="dashboard-item col-md-6">
-                            <h3>Kindergarten Class Bulletin Board</h3>
-                            <p>Check out the latest announcements and upcoming events for the kindergarten class!</p>
+                       <!-- Announcements and Events Section -->
+<div class="dashboard-item col-md-6">
+    <h3>Kindergarten Class Bulletin Board</h3>
+    <p>Check out the latest announcements and upcoming events for the kindergarten class!</p>
 
-                            <!-- Example: Bulletin Board -->
-                            <div class="bulletin-board">
-                                <!-- Announcements -->
-                                <div class="announcement-section">
-                                    <h4>Announcements</h4>
-                                    <ul>
-                                        <li>New Classroom Rules Implemented</li>
-                                        <li>Parent-Teacher Meeting Next Week</li>
-                                        <li>Healthy Snack Day Every Friday</li>
-                                        <!-- Add more announcements as needed -->
-                                    </ul>
-                                </div>
+    <!-- Bulletin Board -->
+    <div class="bulletin-board">
+        <!-- Announcements -->
+        <div class="announcement-section">
+            <h4>Announcements</h4>
+            <ul>
+                <?php foreach ($announcements as $announcement): ?>
+                    <li><?= $announcement['Title']; ?> - <?= date("F d, Y", strtotime($announcement['DatePosted'])); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
 
-                                <!-- Events -->
-                                <div class="event-section">
-                                    <h4>Upcoming Events</h4>
-                                    <ul>
-                                        <li>Field Trip to the Zoo - Date: January 15, 2024</li>
-                                        <li>Science Fair - Date: February 10, 2024</li>
-                                        <li>Art and Craft Day - Date: March 5, 2024</li>
-                                        <!-- Add more events as needed -->
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Events -->
+        <div class="event-section">
+            <h4>Upcoming Events</h4>
+            <ul>
+                <?php foreach ($events as $event): ?>
+                    <li><?= $event['Title']; ?> - Date: <?= date("F d, Y", strtotime($event['EventDate'])); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
 
 
-                <!-- Child's Financial Reports Section -->
-                <div class="profile-section">
-                    <h2 class="mb-3 class-title">Child's Financial Reports</h2>
-                    <p>Review your child's tuition fees, payments, and other bills in this section.</p>
 
-                    <!-- Example: Bulletin Board Style Financial Overview -->
-                    <div class="financial-reports">
-                        <!-- Tuition Fees -->
-                        <div class="tuition-fees-section">
-                            <h4>Tuition Fees</h4>
-                            <ul>
-                                <li>January 2024: $300</li>
-                                <li>February 2024: $300</li>
-                                <li>March 2024: $300</li>
-                                <!-- Add more tuition fee entries as needed -->
-                            </ul>
-                        </div>
-
-                        <!-- Payments -->
-                        <div class="payments-section">
-                            <h4>Payments</h4>
-                            <ul>
-                                <li>Payment Received on January 5, 2024: $150</li>
-                                <li>Payment Received on February 3, 2024: $150</li>
-                                <!-- Add more payment entries as needed -->
-                            </ul>
-                        </div>
-
-                        <!-- Other Bills -->
-                        <div class="other-bills-section">
-                            <h4>Other Bills</h4>
-                            <ul>
-                                <li>Field Trip Fee: $20 (Due by February 10, 2024)</li>
-                                <li>Art Supplies: $10 (Due by March 1, 2024)</li>
-                                <!-- Add more bill entries as needed -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                
 
 
                

@@ -9,6 +9,26 @@
 
 <body>
 <div class="container-xxl bg-white p-0">
+<?php if (!empty($_SESSION['errors'])): ?>
+            <div class="alert alert-danger" role="alert">
+                <strong class="font-weight-bold">Error!</strong>
+                <span class="d-block">
+                    <?php
+                    $errorMessages = is_array($_SESSION['errors']) ? $_SESSION['errors'] : [$_SESSION['errors']];
+                    echo implode('<br>', $errorMessages);
+                    ?>
+                </span>
+            </div>
+        <?php endif; ?>
+
+        <?php if (!empty($_SESSION['success'])): ?>
+            <div class="alert alert-success" role="alert">
+                <strong class="font-weight-bold">Success!</strong>
+                <span class="d-block">
+                    <?php echo $_SESSION['success']; ?>
+                </span>
+            </div>
+        <?php endif; ?>
         <div class="container-fluid service py-6">
             <div class="container">
                 <div class="text-center wow bounceInUp" data-wow-delay="0.1s">

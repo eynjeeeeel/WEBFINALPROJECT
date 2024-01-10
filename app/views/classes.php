@@ -90,130 +90,40 @@
                 <p>Exciting classes designed for young minds!</p>
             </div>
             <div class="row g-4">
-                <!-- Class item for Art & Drawing -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="classes-item">
-                        <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle rounded-circle-img" src="public/img/classes-1.jpg" alt="Class Image">
-                        </div>
-                        <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4 class-title" href="">Art & Drawing</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4 teacher-info">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="public/img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="mb-1">Teacher: Jhon Doe</h6>
-                                        <small>Age: 3-5 Years</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row g-1">
-                                <div class="col-6">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="mb-1">Time: 9-10 AM</h6>
-                                        <small>Capacity: 30 Kids</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+             <!-- Classes Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+        <?php foreach ($classes as $class): ?>
+<div class="col-lg-4 col-md-6 wow fadeInUp">
+    <div class="classes-item">
+        <div class="bg-light rounded-circle w-75 mx-auto p-3">
+            <img class="img-fluid rounded-circle" src="<?=site_url('public/img/' . ($class['Image'])) ?>" alt="Class Image">
+        </div>
+        <div class="bg-light rounded p-4 pt-5 mt-n5">
+            <a class="d-block text-center h3 mt-3 mb-4" href="#"><?= ($class['SubjectName']); ?></a>
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <img class="rounded-circle" src="<?=site_url('public/img/' . ($class['ProfilePicPath'])) ?>" alt="" style="width: 45px; height: 45px;">
+                <div class="ms-3">
+                    <h6 class="mb-1">Teacher: <?= ($class['TeacherName']); ?></h6>
+                    <small>Age Group: <?= ($class['AgeGroup']); ?></small>
                 </div>
-
-                <!-- Class item for Math -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="classes-item">
-                        <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle rounded-circle-img" src="public/img/math.jpeg" alt="Class Image">
-                        </div>
-                        <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4 class-title" href="">Math</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4 teacher-info">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="public/img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="mb-1">Teacher: Jane Smith</h6>
-                                        <small>Age: 4-6 Years</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row g-1">
-                                <div class="col-6">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="mb-1">Time: 10-11 AM</h6>
-                                        <small>Capacity: 25 Kids</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                    <!-- Class item for Language -->
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="classes-item">
-                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle rounded-circle-img" src="public/img/lang.jpg" alt="Class Image">
-                            </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4 class-title" href="">Language</a>
-                                <div class="d-flex align-items-center justify-content-between mb-4 teacher-info">
-                                    <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="public/img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                        <div class="ms-3">
-                                            <h6 class="mb-1">Teacher: Maria Rodriguez</h6>
-                                            <small>Age: 4-6 Years</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-6">
-                                        <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="mb-1">Time: 11-12 AM</h6>
-                                            <small>Capacity: 25 Kids</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Class item for Science -->
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="classes-item">
-                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle rounded-circle-img" src="public/img/science.jpg" alt="Class Image">
-                            </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4 class-title" href="">Science</a>
-                                <div class="d-flex align-items-center justify-content-between mb-4 teacher-info">
-                                    <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="public/img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                        <div class="ms-3">
-                                            <h6 class="mb-1">Teacher: Robert Johnson</h6>
-                                            <small>Age: 5-7 Years</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-6">
-                                        <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="mb-1">Time: 1-2 PM</h6>
-                                            <small>Capacity: 20 Kids</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Add class items for Social Science, Music, Health and Safety, and Physical Education similarly -->
-
-
-                
+            </div>
+            <div class="border-top border-3 pt-2">
+                <h6 class="mb-1">Time: <?= ($class['Time']); ?></h6>
+                <small>Capacity: <?= ($class['Capacity']); ?> Kids</small>
             </div>
         </div>
     </div>
-    <!-- Classes End -->
+</div>
+<?php endforeach; ?>
+
+
+        </div>
+    </div>
+</div>
+<!-- Classes End -->
+
     </div>
 </body>
 
