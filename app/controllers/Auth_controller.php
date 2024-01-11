@@ -106,10 +106,10 @@ class Auth_controller extends Controller
 
             if ($this->Admins_model->insertAdmin($data)) {
                 $this->session->set_flashdata('success', 'Admin registration successful!');
-                redirect('admin_login'); // Redirect to the admin dashboard
+                redirect('adminlogin'); // Redirect to the admin dashboard
             } else {
                 $this->session->set_flashdata('errors', ['Registration failed']);
-                redirect('admin_login');
+                redirect('adminlogin');
             }
         }
     }
