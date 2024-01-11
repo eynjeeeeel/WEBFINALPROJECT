@@ -57,11 +57,7 @@
                                             </div>
                                         </form>
 
-                                        <p class="mt-4 text-center text-lg text-gray-700" style="color: white; font-size: 17px">Don't have an
-                                        account?
-                                        <a href="<?= site_url('adminregister') ?>"
-                                    style="color: aqua; text-decoration: underline">Sign up</a>
-                                        </p>
+                          
                                 </div>
                             </div>
                         </div>

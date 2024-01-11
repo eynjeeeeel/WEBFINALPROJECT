@@ -69,9 +69,8 @@
                                         <div id="errorNotification" class="mt-3 text-center text-lg text-gray-700" style="color: white; font-size: 17px; display: none;">
                                             Please fill in all required fields and ensure the password matches.
                                         </div>
-                                        <p class="mt-4 text-center text-lg text-gray-700" style="color: white; font-size: 17px">
-                                            Already have an account? <a href="<?= site_url('adminlogin') ?>" style="color: aqua; text-decoration: underline">Login</a>
-                                        </p>
+                                  <a href="<?= site_url('admin_db') ?>" style="color: aqua; text-decoration: underline">Back</a>
+                                  
                                     </div>
                                 </div>
                             </div>
