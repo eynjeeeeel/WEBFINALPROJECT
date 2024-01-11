@@ -144,8 +144,9 @@
         </tr>
     </thead>
     <tbody>
-        <?php
-        // Process grades to organize them by subject
+    <?php
+    // Process grades to organize them by subject
+    if (!empty($grades)) {
         $processedGrades = [];
         foreach ($grades as $grade) {
             $processedGrades[$grade['SubjectID']]['Name'] = $grade['Name'];
@@ -155,14 +156,17 @@
         // Display grades
         foreach ($processedGrades as $subjectGrades): ?>
             <tr>
-                <td><?php echo htmlspecialchars($subjectGrades['Name']); ?></td>
-                <td><?php echo htmlspecialchars($subjectGrades['First'] ?? '-'); ?></td>
-                <td><?php echo htmlspecialchars($subjectGrades['Second'] ?? '-'); ?></td>
-                <td><?php echo htmlspecialchars($subjectGrades['Third'] ?? '-'); ?></td>
-                <td><?php echo htmlspecialchars($subjectGrades['Fourth'] ?? '-'); ?></td>
+                <td><?= htmlspecialchars($subjectGrades['Name'] ?? '-'); ?></td>
+                <td><?= htmlspecialchars($subjectGrades['First'] ?? '-'); ?></td>
+                <td><?= htmlspecialchars($subjectGrades['Second'] ?? '-'); ?></td>
+                <td><?= htmlspecialchars($subjectGrades['Third'] ?? '-'); ?></td>
+                <td><?= htmlspecialchars($subjectGrades['Fourth'] ?? '-'); ?></td>
             </tr>
-        <?php endforeach; ?>
-    </tbody>
+        
+        <?php endforeach;
+    } ?>
+</tbody>
+
 </table>
 
 </div>
@@ -177,25 +181,34 @@
 
     <!-- Bulletin Board -->
     <div class="bulletin-board">
-        <!-- Announcements -->
-        <div class="announcement-section">
-            <h4>Announcements</h4>
-            <ul>
-                <?php foreach ($announcements as $announcement): ?>
-                    <li><?= $announcement['Title']; ?> - <?= date("F d, Y", strtotime($announcement['DatePosted'])); ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+       <!-- Announcements -->
+<div class="announcement-section">
+    <h4>Announcements</h4>
+    <?php if (!empty($announcements)): ?>
+        <ul>
+            <?php foreach ($announcements as $announcement): ?>
+                <li><?= htmlspecialchars($announcement['Title']); ?> - <?= htmlspecialchars(date("F d, Y", strtotime($announcement['DatePosted']))); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>No announcements available.</p>
+    <?php endif; ?>
+</div>
 
-        <!-- Events -->
-        <div class="event-section">
-            <h4>Upcoming Events</h4>
-            <ul>
-                <?php foreach ($events as $event): ?>
-                    <li><?= $event['Title']; ?> - Date: <?= date("F d, Y", strtotime($event['EventDate'])); ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+<!-- Events -->
+<div class="event-section">
+    <h4>Upcoming Events</h4>
+    <?php if (!empty($events)): ?>
+        <ul>
+            <?php foreach ($events as $event): ?>
+                <li><?= htmlspecialchars($event['Title']); ?> - Date: <?= htmlspecialchars(date("F d, Y", strtotime($event['EventDate']))); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>No upcoming events.</p>
+    <?php endif; ?>
+</div>
+
     </div>
 </div>
 

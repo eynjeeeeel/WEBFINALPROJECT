@@ -119,35 +119,48 @@
                             </select>
                         </div>
                         
-                        <!-- Dynamic Student Information -->
                         <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="profile-item">
-                                <div class="bg-light">
-                                    <img class="img-fluid rounded-circle rounded-circle-img" src="public/uploads/children/<?= $selectedChild['PhotoPath']; ?>" alt="Profile Image">
-                                </div>
-                                <div class="bg-light rounded p-4">
-                                    <div class="d-block text-center h3 mt-3 mb-4 profile-title"><?= $selectedChild['Name']; ?></div>
-                                    <div class="d-flex align-items-center justify-content-between mb-4 profile-info">
-                                        <div class="d-flex align-items-center">
-                                            <i class="bi bi-calendar-event me-2"></i>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1">Age: <?= ($selectedChild['Age']); ?></h6>
-                                                <small style="color: #dc3545;">Birthday: <?= date("F d, Y", strtotime($selectedChild['Birthday'])); ?></small>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <i class="bi bi-person me-2"></i>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1">Gender: <?= $selectedChild['Gender']; ?></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border-top">
-                                        <h6 class="mb-1">Address: <?= $selectedChild['Address']; ?></h6>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="profile-item">
+        <div class="bg-light">
+            <img class="img-fluid rounded-circle rounded-circle-img" src="public/uploads/children/<?= !empty($selectedChild['PhotoPath']) ? $selectedChild['PhotoPath'] : 'default-image.jpg'; ?>" alt="Profile Image">
+        </div>
+        <div class="bg-light rounded p-4">
+            <?php if (!empty($selectedChild['Name'])): ?>
+                <div class="d-block text-center h3 mt-3 mb-4 profile-title"><?= $selectedChild['Name']; ?></div>
+            <?php endif; ?>
+
+            <div class="d-flex align-items-center justify-content-between mb-4 profile-info">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-calendar-event me-2"></i>
+                    <div class="ms-2">
+                        <?php if (!empty($selectedChild['Age'])): ?>
+                            <h6 class="mb-1">Age: <?= $selectedChild['Age']; ?></h6>
+                        <?php endif; ?>
+                        <?php if (!empty($selectedChild['Birthday'])): ?>
+                            <small style="color: #dc3545;">Birthday: <?= date("F d, Y", strtotime($selectedChild['Birthday'])); ?></small>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <?php if (!empty($selectedChild['Gender'])): ?>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-person me-2"></i>
+                        <div class="ms-2">
+                            <h6 class="mb-1">Gender: <?= $selectedChild['Gender']; ?></h6>
                         </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <?php if (!empty($selectedChild['Address'])): ?>
+                <div class="border-top">
+                    <h6 class="mb-1">Address: <?= $selectedChild['Address']; ?></h6>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
 
                         <!-- Additional Information on the Right -->
                         <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
@@ -158,8 +171,12 @@
                                         <div class="bg-light rounded p-4">
                                             <div class="d-block text-center h3 mt-3 mb-4 profile-title">Emergency Contact</div>
                                             <div class="border-top">
-                                                <h6 class="mb-1">Name: <?= $emergencyContact['Name']; ?></h6>
-                                                <small>Contact: <?= $emergencyContact['ContactNumber']; ?></small>
+                                            <?php if (!empty($emergencyContact)): ?>
+    <h6 class="mb-1">Name: <?= $emergencyContact['Name']; ?></h6>
+    <small>Contact: <?= $emergencyContact['ContactNumber']; ?></small>
+<?php else: ?>
+    <p>No emergency contact information available.</p>
+<?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -171,8 +188,12 @@
                                         <div class="bg-light rounded p-4">
                                             <div class="d-block text-center h3 mt-3 mb-4 profile-title">Health Information</div>
                                             <div class="border-top">
-                                                <h6 class="mb-1">Blood Type: <?= $healthInfo['BloodType']; ?></h6>
-                                                <small>Allergies: <?= $healthInfo['Allergies']; ?></small>
+                                            <?php if (!empty($healthInfo)): ?>
+    <h6 class="mb-1">Blood Type: <?= $healthInfo['BloodType']; ?></h6>
+    <small>Allergies: <?= $healthInfo['Allergies']; ?></small>
+<?php else: ?>
+    <p>No health information available.</p>
+<?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -184,8 +205,12 @@
                                         <div class="bg-light rounded p-4">
                                             <div class="d-block text-center h3 mt-3 mb-4 profile-title">Behavioral & Social Development</div>
                                             <div class="border-top">
-                                                <h6 class="mb-1">Behavior: <?= $behavioralDevelopment['Behavior']; ?></h6>
-                                                <small>Social Skills: <?= $behavioralDevelopment['SocialSkills']; ?></small> 
+                                            <?php if (!empty($behavioralDevelopment)): ?>
+    <h6 class="mb-1">Behavior: <?= $behavioralDevelopment['Behavior']; ?></h6>
+    <small>Social Skills: <?= $behavioralDevelopment['SocialSkills']; ?></small>
+<?php else: ?>
+    <p>No behavioral or social development information available.</p>
+<?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +221,7 @@
                                     <div class="bg-light rounded p-4">
                                         <div class="d-block text-center h3 mt-3 mb-4 profile-title">Recent Photograph</div>
                                         <div class="border-top">
-                                        <img class="img-fluid rounded-circle rounded-circle-img" src="public/uploads/children/<?= $selectedChild['PhotoPath']; ?>" alt="Profile Image">
+                                        <img class="img-fluid rounded-circle rounded-circle-img" src="public/uploads/children/<?= !empty($selectedChild['PhotoPath']); ?>" alt="Profile Image">
                                         </div>
                                     </div>
                                 </div>
